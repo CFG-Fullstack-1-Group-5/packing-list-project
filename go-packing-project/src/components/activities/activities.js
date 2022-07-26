@@ -1,33 +1,23 @@
-import React, { useState } from 'react'
-import MultiSelect from  'react-multiple-select-dropdown-lite'
-import  'react-multiple-select-dropdown-lite/dist/index.css'
+import * as React from 'react';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
-const ActivitiesDropdown = () => {
+export default function ComboBox() {
+  return (
+    <Autocomplete
+      disablePortal
+      id="combo-box-demo"
+      options={activities}
+      sx={{ width: 300 }}
+      renderInput={(params) => <TextField {...params} label="Activities" />}
+    />
+  );
+}
 
-  const [value, setvalue] = useState('')
-
-  const  handleOnchange  =  val  => {
-    setvalue(val)
-  }
-
-  const  options  = [
-    { label:  'Option 1', value:  'option_1'  },
-    { label:  'Option 2', value:  'option_2'  },
-    { label:  'Option 3', value:  'option_3'  },
-    { label:  'Option 4', value:  'option_4'  },
-  ]
-  
-  return(
-    <div className="dropdown">
-      <div  className="preview-values">
-        {value}
-      </div>
-
-      <MultiSelect
-        onChange={handleOnchange}
-        options={options}
-        placeholder="Activities"
-      />
-    </div>
-)}
-export  default ActivitiesDropdown
+// Activities lists
+const activities = [
+  { label: 'Hiking', value: 'Hiking' },
+  { label: 'Beach Days', value: 'Beach Days' },
+  { label: 'Out on the town', value: 'Out on the town' },
+  { label: 'Skiing', value: 'Skiing' },
+];
