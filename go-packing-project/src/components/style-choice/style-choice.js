@@ -14,7 +14,7 @@ export default function ComboBox() {
       disablePortal
       id="combo-box-demo"
       options={style}
-      sx={{ width: "20vw", boxShadow: 4, borderRadius: "0px 25px 25px 0px", height: 58,
+      sx={{ width: "20vw",  borderRadius: "0px 25px 25px 0px", height: 58, border: "solid", borderColor: "hsl(0, 0%, 80%)", borderWidth: "1px", 
       "& .MuiOutlinedInput-notchedOutline": {
         border: "0 none",
       },  }}
