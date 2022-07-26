@@ -22,7 +22,7 @@ export default function ResponsiveDateRangePicker() {
           
           <Box sx={{
             
-            display: 'flex', boxShadow: 4, alignItems: 'center', width: "20vw",  height: 58, 
+            display: 'flex',  width: "20vw",  borderRadius: "0px 0px 0px 0px", height: 58, border: "solid", borderColor: "hsl(0, 0%, 80%)", borderWidth: "1px", borderRight: "none",
             "& .MuiOutlinedInput-notchedOutline": {
               border: "0 none",
             },
