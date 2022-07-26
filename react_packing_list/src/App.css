@@ -1,0 +1,118 @@
+.App {
+    max-width: 1080px;
+    margin: 100px auto;
+    margin-top: 170px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+    width: auto;
+    margin: 8px;
+    letter-spacing: -1px;
+}
+
+.Search {
+    text-align: center;
+}
+
+.Search input {
+    margin: 0;
+    outline: none;
+    border-top: none;
+    border-bottom: none;
+    font-size: 12px;
+}
+
+.Search select {
+    margin: 0;
+    outline: none;
+    font-family: 'Inter';
+    border-top: none;
+    border-bottom: none;
+}
+
+#Style {
+    height: 100%;
+    border-radius: 0px 20px 20px 0px;
+    width: 20%;
+    border-right: none;
+}
+
+#Activities{
+    height: 100%;
+    width: 20%; 
+}
+
+input::placeholder {
+    font-family: 'Inter';
+    color: black;
+    font-size: 14px;
+    padding-left: 20px;
+}
+
+#City {
+    height: 100%;
+    width: 30%;
+    border-radius: 20px 0px 0px 20px;
+    border-left: none;
+}
+
+#Date {
+    height: 100%;
+    width: 20%;
+    border: none;
+}
+
+form {
+    height: 60px;
+    width: 100%;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+button {
+    font-size: 18px;
+    width: 190px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #FEB500;
+    border: none;
+    outline: none;
+    color: black;
+}
+
+nav {
+    height: 60px;
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left:0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.25);
+    overflow: hidden;
+}
+
+.NavBar button {
+    font-size: 8px;
+    width: 70px;
+    height: 20px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: none;
+    outline: none;
+    color: black;
+}
+
+.logo-image{
+    background: url('../GoPackingLogo-Black.svg') no-repeat;
+    width: 169px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
