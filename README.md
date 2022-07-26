@@ -2,11 +2,11 @@
 
 Packing list project for Summer CFG Full Stack Degree (Group 5).
 
-# To run this project please run:
+## To run this project please run:
 
 ### `npm install`
 
-If this produces an error, insteal run
+If this produces an error, run:
 
 ### `npm install --force`
 
