@@ -18,6 +18,6 @@ export default function ComboBox() {
 const style = [
   { label: 'Masculine', value: 'Masculine' },
   { label: 'Feminine', value: 'Feminine' },
-  { label: 'Both', value: 'oth' },
+  { label: 'Both', value: 'Both' },
 
 ];
