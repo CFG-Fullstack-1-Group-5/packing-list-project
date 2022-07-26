@@ -1,0 +1,15 @@
+.css-14el2xx-placeholder {
+    padding: 2px 15px;
+}
+
+.css-1a0kptf-control {
+    width: "20vw"; 
+    boxShadow: 4;
+    borderRadius: "0px 25px 25px 0px";
+    border-color: hsl(0, 0%, 80%);
+    border-radius: 25px 0px 0px 25px;
+    border-style: solid;
+    border-width: 1px;
+    border-right: none !important;
+    height: 58px !important;
+}
