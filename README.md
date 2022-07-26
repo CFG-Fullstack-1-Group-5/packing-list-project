@@ -2,7 +2,7 @@
 
 Packing list project for Summer CFG Full Stack Degree (Group 5).
 
-# Install Node
+# To run this project please run the code:
 
 ### `npm install`
 
