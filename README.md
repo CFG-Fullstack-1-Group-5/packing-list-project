@@ -11,7 +11,7 @@ If this produces an error, run:
 ### `npm install --force`
 
 
-# Once the node_modules folder has been created run:
+## Once the node_modules folder has been created run:
 
 ### `npm start`
 
