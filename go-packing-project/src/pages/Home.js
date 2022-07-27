@@ -5,25 +5,20 @@ import { WEATHER_API_URL, WEATHER_API_KEY } from "../api"
 import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import WeatherForecast from "../components/forecast/forecast";
-import BasicDateRangePicker from "../components/date-picker/date-picker";
+import DateRange from "../components/date-picker/date-picker";
 import ActivitiesDropdown from "../components/activities/activities";
 import StyleDropdown from "../components/style-choice/style-choice";
-
-
-
-
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
-
 
   const handleOnSearchChange = (searchData) => {
     //Split value of latitude and longitude  for later use
     const [lat, lon] = searchData.value.split(" ");
 
     const currentWeatherFetch = fetch(`${WEATHER_API_URL}/timeline/${lat},${lon}?unitGroup=metric&key=${WEATHER_API_KEY}`);
-    const forecastFetch = fetch(`${WEATHER_API_URL}/timeline/${searchData.label}/2022-10-21/2022-10-29?unitGroup=metric&key=${WEATHER_API_KEY}`);
+    const forecastFetch = fetch(`${WEATHER_API_URL}/timeline/${searchData.label}/${(DateRange().setStartDate)}/${(DateRange().setEndtDate)}?unitGroup=metric&key=${WEATHER_API_KEY}`);
 
     Promise.all([currentWeatherFetch, forecastFetch])
       .then(async (response) => {
@@ -54,7 +49,7 @@ function App() {
         
         {/* date range picker */}
         <div className="col">
-        <BasicDateRangePicker/>
+        <DateRange/>
         </div>
  
   {/* activities dropdown */}
@@ -67,7 +62,6 @@ function App() {
         <StyleDropdown/>
         </div>
  
-
       </div>
     </form>
   );
