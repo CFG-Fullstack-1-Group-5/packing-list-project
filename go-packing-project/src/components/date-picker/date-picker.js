@@ -7,7 +7,7 @@ import './date-picker.css';
 
 
 
-function DateRange() {
+function DateRange(prop) {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [focusedInput, setFocusedInput] = useState(null);
@@ -28,7 +28,6 @@ function DateRange() {
         focusedInput={focusedInput}
         onFocusChange={e => setFocusedInput(e)}
         displayFormat="DD/MM/YYYY"
-        placeholder= "Hello World!"
       />
       <h1> how to call dates</h1>
       <div className="mt-3 mb-1">Start Date: {startDate && startDate.format('ll')}</div>
