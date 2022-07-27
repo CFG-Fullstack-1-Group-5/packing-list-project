@@ -1,40 +1,40 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import { LocalizationProvider } from '@mui/x-date-pickers-pro';
-import { AdapterDateFns } from '@mui/x-date-pickers-pro/AdapterDateFns';
-import { MobileDateRangePicker } from '@mui/x-date-pickers-pro/MobileDateRangePicker';
-import "./date-picker.css";
+import React, { useState } from 'react';
+
+import 'react-dates/initialize';
+import { DateRangePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+import './date-picker.css';
 
 
-export default function ResponsiveDateRangePicker() {
-  const [value, setValue] = React.useState([null, null]);
+
+function DateRange() {
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [focusedInput, setFocusedInput] = useState(null);
 
   return (
+    <div className="DateRange">
+      
+      <DateRangePicker
 
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <MobileDateRangePicker
-        label="Date"
-        value={value}
-        onChange={(newValue) => {
-          setValue(newValue);
-        }}
-        renderInput={({ inputRef, inputProps, InputProps }) => (
-          
-          <Box sx={{
-            
-            display: 'flex',  width: "20vw",  borderRadius: "0px 0px 0px 0px", height: 58, border: "solid", borderColor: "hsl(0, 0%, 80%)", borderWidth: "1px", borderRight: "none",
-            "& .MuiOutlinedInput-notchedOutline": {
-              border: "0 none",
-            },
-          }}>
-            <input ref={inputRef} {...inputProps} />
-            
-            {InputProps?.endAdornment}
-
-          </Box>
-        )}
+        startDate={startDate}
+        startDateId="s_id"
+        startDatePlaceholderText = "Dates"
+        endDatePlaceholderText = " "
+        endDate={endDate}
+        endDateId="e_id"
+        showDefaultInputIcon
+        onDatesChange={({ startDate, endDate }) => { setStartDate(startDate); setEndDate(endDate); }}
+        focusedInput={focusedInput}
+        onFocusChange={e => setFocusedInput(e)}
+        displayFormat="DD/MM/YYYY"
+        placeholder= "Hello World!"
       />
-    </LocalizationProvider>
-
+      <h1> how to call dates</h1>
+      <div className="mt-3 mb-1">Start Date: {startDate && startDate.format('ll')}</div>
+      <div>End Date: {endDate && endDate.format('ll')}</div>
+    </div>
   );
 }
+
+export default DateRange;
