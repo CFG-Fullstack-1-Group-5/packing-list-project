@@ -1,37 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import 'react-dates/initialize';
-import { DateRangePicker } from 'react-dates';
-import 'react-dates/lib/css/_datepicker.css';
-import './date-picker.css';
+import "react-dates/initialize";
+import { DateRangePicker } from "react-dates";
+import "react-dates/lib/css/_datepicker.css";
+import "./date-picker.css";
 
-
-
-function DateRange(prop) {
+function DateRange(props) {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [focusedInput, setFocusedInput] = useState(null);
 
+  // On each re-render, pass the start and end date up to storeDates() in Home.js via props
+  useEffect(() => {
+    props.storeDates(startDate, endDate);
+  });
+
   return (
     <div className="DateRange">
-      
       <DateRangePicker
-
         startDate={startDate}
         startDateId="s_id"
-        startDatePlaceholderText = "Dates"
-        endDatePlaceholderText = " "
+        startDatePlaceholderText="Dates"
+        endDatePlaceholderText=" "
         endDate={endDate}
         endDateId="e_id"
         showDefaultInputIcon
-        onDatesChange={({ startDate, endDate }) => { setStartDate(startDate); setEndDate(endDate); }}
+        onDatesChange={({ startDate, endDate }) => {
+          setStartDate(startDate);
+          setEndDate(endDate);
+        }}
         focusedInput={focusedInput}
-        onFocusChange={e => setFocusedInput(e)}
+        onFocusChange={(e) => setFocusedInput(e)}
         displayFormat="DD/MM/YYYY"
       />
-      <h1> how to call dates</h1>
-      <div className="mt-3 mb-1">Start Date: {startDate && startDate.format('ll')}</div>
-      <div>End Date: {endDate && endDate.format('ll')}</div>
     </div>
   );
 }
