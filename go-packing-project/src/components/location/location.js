@@ -26,7 +26,7 @@ const Search = ({ onSearchChange }) => {
       .catch((err) => console.error(err));
   };
 
-  const handleOnChange = (DData) => {
+  const handleOnChange = (searchData) => {
     setSearch(searchData);
     onSearchChange(searchData);
   };
