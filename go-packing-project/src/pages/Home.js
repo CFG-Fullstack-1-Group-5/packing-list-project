@@ -1,70 +1,96 @@
 import "./Home.css";
-import Search from "../components/search/search";
-import CurrentWeather from "../components/current-weather/current-weather";
-import { WEATHER_API_URL, WEATHER_API_KEY } from "../api"
-import { useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import WeatherForecast from "../components/forecast/forecast";
+
+import Search from "../components/location/location";
+import { WEATHER_API_URL, WEATHER_API_KEY } from "../api";
+import { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Form from 'react-bootstrap/Form';
 import DateRange from "../components/date-picker/date-picker";
 import ActivitiesDropdown from "../components/activities/activities";
 import StyleDropdown from "../components/style-choice/style-choice";
+import WhenButtonClicked from "../components/Button";
 
 function App() {
-  const [currentWeather, setCurrentWeather] = useState(null);
-  const [forecast, setForecast] = useState(null);
+    const [currentWeather, setCurrentWeather] = useState(null);
+    const [forecast, setForecast] = useState(null);
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
+    const [ComboBox, setActivities] = useState(null);
 
-  const handleOnSearchChange = (searchData) => {
-    //Split value of latitude and longitude  for later use
-    const [lat, lon] = searchData.value.split(" ");
+    // Set the startDate and endDate
+    const storeDates = (start, end) => {
+        setStartDate(start);
+        setEndDate(end);
+        console.log(`Start ${startDate} and End ${endDate}`);
+    };
 
-    const currentWeatherFetch = fetch(`${WEATHER_API_URL}/timeline/${lat},${lon}?unitGroup=metric&key=${WEATHER_API_KEY}`);
-    const forecastFetch = fetch(`${WEATHER_API_URL}/timeline/${searchData.label}/${(DateRange().setStartDate)}/${(DateRange().setEndtDate)}?unitGroup=metric&key=${WEATHER_API_KEY}`);
+      // Set activities choice
+      const storeActivities = (activities) => {
+        setActivities(activities);
+       
+        console.log(`Activities ${ComboBox} and End ${endDate}`);
+    };
 
-    Promise.all([currentWeatherFetch, forecastFetch])
-      .then(async (response) => {
-        const weatherResponse = await response[0].json();
-        const forecastResponse = await response[1].json();
 
-        setCurrentWeather({ city: searchData.label, ...weatherResponse });
-        setForecast({ city: searchData.label, ...forecastResponse });
-      })
-      .catch((err) => console.log(err));
-  }
+    /*
+    NEXT STEP
+    1. submit button
+    2. onSubmit={handleSubmit}
+    3. handleSubmit() function - setSubmitData state with all of the data they've put in an object {startdate: startDate}
+    */
 
-  console.log(currentWeather)
-  console.log(forecast)
-  return (
+    const handleOnSearchChange = (searchData) => {
+        //Split value of latitude and longitude  for later use
+        const [lat, lon] = searchData.value.split(" ");
 
-    <form className="container">
-      <div className="row">
+        const currentWeatherFetch = fetch(
+            `${WEATHER_API_URL}/timeline/${lat},${lon}?unitGroup=metric&key=${WEATHER_API_KEY}`
+        );
+        const forecastFetch = fetch(
+            `${WEATHER_API_URL}/timeline/${searchData.label}/${DateRange().setStartDate
+            }/${DateRange().setEndtDate}?unitGroup=metric&key=${WEATHER_API_KEY}`
+        );
 
-        {/* choose city */}
-        <div className="col">
-          <Search onSearchChange={handleOnSearchChange} />
-          {currentWeather && <CurrentWeather data={currentWeather} />}
+        Promise.all([currentWeatherFetch, forecastFetch])
+            .then(async (response) => {
+                const weatherResponse = await response[0].json();
+                const forecastResponse = await response[1].json();
 
-          {/*Weather Forecast */}
-          {forecast && <WeatherForecast data={forecast} />}
-        </div>
-        
-        {/* date range picker */}
-        <div className="col">
-        <DateRange/>
-        </div>
- 
-  {/* activities dropdown */}
-  <div className="col">
-        <ActivitiesDropdown/>
-        </div>
+                setCurrentWeather({ city: searchData.label, ...weatherResponse });
+                setForecast({ city: searchData.label, ...forecastResponse });
+            })
+            .catch((err) => console.log(err));
+    };
 
-         {/* style dropdown */}
-  <div className="col">
-        <StyleDropdown/>
-        </div>
- 
-      </div>
-    </form>
-  );
+    console.log(currentWeather);
+    console.log(forecast);
+    return (
+        <Form className="container">
+            <div className="row">
+                {/* choose city */}
+                <div className="col">
+                    <Search onSearchChange={handleOnSearchChange} />
+
+                </div>
+
+                {/* date range picker */}
+                <div className="col">
+                    <DateRange storeDates={storeDates} />
+                </div>
+
+                {/* activities dropdown */}
+                <div className="col">
+                    <ActivitiesDropdown storeActivities= {storeActivities}/>
+                </div>
+
+                {/* style dropdown */}
+                <div className="col">
+                    <StyleDropdown />
+                </div>
+            </div>
+            <WhenButtonClicked />
+        </Form>
+    );
 }
 
 export default App;
