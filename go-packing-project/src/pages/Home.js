@@ -1,14 +1,15 @@
 import "./Home.css";
-
 import Search from "../components/location/location";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "../api";
 import { useEffect, useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import Form from 'react-bootstrap/Form';
 import DateRange from "../components/date-picker/date-picker";
 import ActivitiesDropdown from "../components/activities/activities";
 import StyleDropdown from "../components/style-choice/style-choice";
-import WhenButtonClicked from "../components/Button";
+import Header from "../components/header/Header";
+// import WhenButtonClicked from "../components/Button";
+import Button from "../components/button/button";
 
 function App() {
     const [currentWeather, setCurrentWeather] = useState(null);
@@ -65,6 +66,12 @@ function App() {
     console.log(currentWeather);
     console.log(forecast);
     return (
+      <div>
+        <Header />
+        <div className='Welcome'>
+          <h1>Discover what to</h1>
+          <h1>pack for your holiday</h1>
+        </div>
         <Form className="container">
             <div className="row">
                 {/* choose city */}
@@ -74,9 +81,9 @@ function App() {
                 </div>
 
                 {/* date range picker */}
-                <div className="col">
+                {/* <div className="col">
                     <DateRange storeDates={storeDates} />
-                </div>
+                </div> */}
 
                 {/* activities dropdown */}
                 <div className="col">
@@ -88,8 +95,12 @@ function App() {
                     <StyleDropdown />
                 </div>
             </div>
-            <WhenButtonClicked />
+            {/* <WhenButtonClicked /> */}
         </Form>
+        <div className="submit">
+          <Button />
+        </div>
+      </div>
     );
 }
 

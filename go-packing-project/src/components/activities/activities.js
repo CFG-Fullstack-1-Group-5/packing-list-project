@@ -8,7 +8,7 @@ export default function ComboBox() {
       disablePortal
       id="combo-box-demo"
       options={activities}
-      sx={{ width: "20vw",  borderRadius: "0px 0px 0px 0px", height: 58, border: "solid", borderColor: "hsl(0, 0%, 80%)", borderWidth: "1px", borderRight: "none",
+      sx={{ backgroundColor: "white", width: "15vw",  borderRadius: "0px 0px 0px 0px", height: 58, border: "solid", borderColor: "hsl(0, 0%, 80%)", borderWidth: "1px", borderRight: "none",
       "& .MuiOutlinedInput-notchedOutline": {
         border: "0 none",
       },  }}

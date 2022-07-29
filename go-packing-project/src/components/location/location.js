@@ -28,8 +28,10 @@ const Search = ({ onSearchChange }) => {
 
   const handleOnChange = (searchData) => {
     setSearch(searchData);
-    onSearchChange(searchData);
+    onSearchChange( );
   };
+
+  
 
   return (
     <AsyncPaginate
@@ -37,7 +39,6 @@ const Search = ({ onSearchChange }) => {
       theme={(theme) => ({
         ...theme,
         borderRadius: "25px 0px 0px 25px",
-  
       })}
       debounceTimeout={600}
       value={search}

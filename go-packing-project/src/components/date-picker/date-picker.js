@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import "react-dates/initialize";
-import { DateRangePicker } from "react-dates";
-import "react-dates/lib/css/_datepicker.css";
+// import "react-dates/initialize";
+import { DateRangePicker } from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import "./date-picker.css";
 
 function DateRange(props) {
