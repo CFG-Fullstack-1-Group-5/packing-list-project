@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_API_URL, geoApiOptions } from "../../api";
 import "./location.css";
+import globe from "../../assets/icons/globe.svg"
 
 
 const Search = ({ onSearchChange }) => {
@@ -34,17 +35,19 @@ const Search = ({ onSearchChange }) => {
   
 
   return (
-    <AsyncPaginate
-      placeholder="Search for city"
-      theme={(theme) => ({
-        ...theme,
-        borderRadius: "25px 0px 0px 25px",
-      })}
-      debounceTimeout={600}
-      value={search}
-      onChange={handleOnChange}
-      loadOptions={loadOptions}
-    />
+    <div className='location'>
+      <img className="icon" src={globe} />
+      <AsyncPaginate
+        placeholder="Search for city"
+        // theme={(theme) => ({
+        //   ...theme,
+        // })}
+        debounceTimeout={600}
+        value={search}
+        onChange={handleOnChange}
+        loadOptions={loadOptions}
+      />
+  </div>
   );
 };
 

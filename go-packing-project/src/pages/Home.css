@@ -11,10 +11,6 @@ h1 {
 
   .Welcome {
     margin-top: 150px;
+    margin-bottom: 50px;
   }
 
-  Form {
-    margin-top: 50px;;
-    width: 80%;
-    justify-content: center !important;
-  }

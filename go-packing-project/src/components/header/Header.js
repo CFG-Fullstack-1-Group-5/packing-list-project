@@ -1,4 +1,5 @@
 import "./Header.css";
+import logo from "../../assets/logo.png"
 
 function Header() {
 
@@ -6,10 +7,8 @@ function Header() {
     <header>
       <div className="NavBar"> 
         <nav>
-          <form>
-            <a href="#"><img src='./logo.png'/></a>
-            <button class="aboutButton">About</button>
-          </form>
+          <a href="#"><img src={logo}/></a>
+          <button class="aboutButton">About</button>
         </nav>
       </div>    
     </header>

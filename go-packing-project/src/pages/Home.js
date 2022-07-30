@@ -10,6 +10,8 @@ import StyleDropdown from "../components/style-choice/style-choice";
 import Header from "../components/header/Header";
 // import WhenButtonClicked from "../components/Button";
 import Button from "../components/button/button";
+import VerticalLine from "../components/verticalLine/verticalLine"
+import "../components/search.css";
 
 function App() {
     const [currentWeather, setCurrentWeather] = useState(null);
@@ -66,41 +68,25 @@ function App() {
     console.log(currentWeather);
     console.log(forecast);
     return (
-      <div>
+      <>
         <Header />
         <div className='Welcome'>
           <h1>Discover what to</h1>
           <h1>pack for your holiday</h1>
         </div>
-        <Form className="container">
-            <div className="row">
-                {/* choose city */}
-                <div className="col">
-                    <Search onSearchChange={handleOnSearchChange} />
-
-                </div>
-
-                {/* date range picker */}
-                {/* <div className="col">
-                    <DateRange storeDates={storeDates} />
-                </div> */}
-
-                {/* activities dropdown */}
-                <div className="col">
-                    <ActivitiesDropdown storeActivities= {storeActivities}/>
-                </div>
-
-                {/* style dropdown */}
-                <div className="col">
-                    <StyleDropdown />
-                </div>
-            </div>
-            {/* <WhenButtonClicked /> */}
+        <Form className="search">
+            <Search onSearchChange={handleOnSearchChange} />
+            <VerticalLine/>
+            <DateRange storeDates={storeDates} /> 
+            <VerticalLine/>
+            <ActivitiesDropdown className="activity" storeActivities= {storeActivities}/> 
+            <VerticalLine/>
+            <StyleDropdown />
         </Form>
         <div className="submit">
           <Button />
         </div>
-      </div>
+      </>
     );
 }
 

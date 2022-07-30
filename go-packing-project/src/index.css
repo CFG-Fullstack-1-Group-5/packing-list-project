@@ -10,6 +10,7 @@ body {
   background-size: 1500px;
   line-height: 1.4;
   color: #ffffff;
+  text-align: center;
   /* Default font size is 16px */
 }
 
@@ -35,7 +36,7 @@ body {
   text-transform: uppercase;
 } */
 
-input,
+/* input,
 textarea {
     width: 300px !important;
     border: 0 !important;
@@ -43,7 +44,7 @@ textarea {
     height: 45px;
     padding-left: 20px;
     color: hsl(0, 0%, 50%) !important;
-}
+} */
 
 /* .container {
   width:  500vw important;
@@ -52,7 +53,7 @@ textarea {
 } */
 
 
-.col::before {
+/* .col::before {
   padding: 0px !important;
   margin: 0px;
   width: 20vw !important;
@@ -68,5 +69,5 @@ textarea {
   margin-right: -15px;
   margin-left: -15px;
   width: 80vw;
-}
+} */
 

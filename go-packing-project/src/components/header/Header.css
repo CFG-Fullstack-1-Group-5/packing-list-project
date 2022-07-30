@@ -21,6 +21,7 @@ nav {
     outline: none;
     color: black;
     margin-top: 25px;
+    margin-right: 25px;
     float: right;
 }
 
@@ -33,4 +34,5 @@ nav {
     height: 40px;
     width: 168px;
     margin: 15px;
+    float: left;
 }
