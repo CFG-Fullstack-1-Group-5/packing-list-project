@@ -1,0 +1,16 @@
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    margin: 0 auto;
+    text-shadow:0px 4px 4px #00000025;
+  }
+
+  .Welcome {
+    margin-top: 150px;
+    margin-bottom: 50px;
+  }
+

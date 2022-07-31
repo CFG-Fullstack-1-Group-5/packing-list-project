@@ -1,0 +1,112 @@
+.search {
+    width: 80%;
+    margin-left:  auto;
+    margin-right:  auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.location{
+    width: 25%;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    background-color: #ECECEC;
+    border: none;
+    color: #6D6D6D;
+    padding: 12px;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+}
+
+.date {
+    width: 25%;
+    margin: 0;
+    height: 50px;
+    padding: 0;
+    background-color: #ECECEC;
+    border: none;
+    color: #6D6D6D;
+    padding: 12px;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+.activity {
+    width: 25%;
+    margin: 0;
+    height: 50px;
+    padding: 0;
+    background-color: #ECECEC;
+    border: none;
+    color: #6D6D6D;
+    padding: 12px;
+    border-right: 12px solid transparent;
+
+}
+
+.style {
+    width: 25%;
+    margin: 0;
+    height: 50px;
+    padding: 0;
+    background-color: #ECECEC;
+    border: none;
+    color: #6D6D6D;
+    padding: 12px;
+    border-right: 12px solid transparent;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+}
+
+.icon {
+    height: 50px;
+    background-color: #ECECEC;
+    padding: 12px 0 12px 12px
+}
+
+.verticalLine {
+    height: 50px;
+    width: 1px;
+    background-color: #6D6D6D;
+}
+
+/* .test1 {
+    background-color: blue;
+    width: 10%;
+    height: 50px;
+    color: white;
+    line-height: 50px;
+    border: 1px white solid
+}
+.test2 {
+    background-color: blue;
+    width: 20%;
+    height: 50px;
+    color: white;
+    line-height: 50px;
+    border: 1px white solid
+}
+.test3 {
+    background-color: blue;
+    width: 30%;
+    height: 50px;
+    color: white;
+    line-height: 50px;
+    border: 1px white solid
+}
+.test4 {
+    background-color: blue;
+    width: 50%;
+    height: 50px;
+    color: white;
+    line-height: 50px;
+    border: 1px white solid
+} */
