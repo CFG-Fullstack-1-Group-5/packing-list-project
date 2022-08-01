@@ -1,0 +1,15 @@
+
+.style {
+    margin: 0;
+    height: 50px;
+    padding: 0;
+    border: none;
+    color: #000;
+    padding: 12px;
+    padding-left: 50px;
+    width: 300px;
+border-left: solid 0.5px ;
+    border-right: 12px solid transparent;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+}

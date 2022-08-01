@@ -1,0 +1,446 @@
+
+.DateRangePickerInput_arrow {
+    display: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .PresetDateRangePicker_panel {
+    width: 25% !important;
+    margin: 0 !important;
+    height: 40px !important;
+    padding: 0 !important;
+    background-color: #ECECEC !important;
+    border: none !important;
+    color: #6D6D6D !important;
+    padding: 12px !important;
+  }
+
+
+  .PresetDateRangePicker_button {
+    position: relative;
+    height: 100%;
+    text-align: center;
+    background: 0 0;
+    border: 2px solid #FEB500 !important;
+    color: #FEB500 !important;
+    padding: 4px 12px;
+    margin-right: 8px;
+    font: inherit;
+    font-weight: 700;
+    line-height: normal;
+    overflow: visible;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer
+  }
+  .PresetDateRangePicker_button:active {
+    outline: 0
+  }
+  .PresetDateRangePicker_button__selected {
+    color: #fff;
+    background: #FEB500;
+  }
+  
+  .CalendarDay {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center
+  }
+  .CalendarDay:active {
+    outline: 0
+  }
+  .CalendarDay__defaultCursor {
+    cursor: default
+  }
+  .CalendarDay__default {
+    border: 1px solid #e4e7e7;
+    color: #484848;
+    background: #fff
+  }
+  .CalendarDay__default:hover {
+    background: #e4e7e7;
+    border: 1px solid #e4e7e7;
+    color: inherit
+  }
+  .CalendarDay__hovered_offset {
+    background: #f4f5f5;
+    border: 1px double #e4e7e7;
+    color: inherit
+  }
+  .CalendarDay__outside {
+    border: 0;
+    background: #fff;
+    color: #484848
+  }
+  .CalendarDay__outside:hover {
+    border: 0
+  }
+  .CalendarDay__blocked_minimum_nights {
+    background: #fff;
+    border: 1px solid #eceeee;
+    color: #cacccd
+  }
+  .CalendarDay__blocked_minimum_nights:active,
+  .CalendarDay__blocked_minimum_nights:hover {
+    background: #fff;
+    color: #cacccd
+  }
+  .CalendarDay__highlighted_calendar {
+    background: #ffe8bc;
+    color: #484848
+  }
+  .CalendarDay__highlighted_calendar:active,
+  .CalendarDay__highlighted_calendar:hover {
+    background: #ffce71;
+    color: #484848
+  }
+  .CalendarDay__selected_span {
+    background: rgba(254, 181, 0, 0.8) !important;
+    border: 1px double #F5AF00;
+    color: #fff
+  }
+  .CalendarDay__selected_span:active,
+  .CalendarDay__selected_span:hover {
+    background: ##F5AF00;
+    border: 1px double #F5AF00;
+    color: #fff
+  }
+  .CalendarDay__selected,
+  .CalendarDay__selected:active,
+  .CalendarDay__selected:hover {
+    background: #FEB500 !important;
+    border: 1px double #F5AF00 !important;
+    color: #fff
+  }
+  .CalendarDay__hovered_span,
+  .CalendarDay__hovered_span:hover {
+    background: #FFD770;
+    border: 1px double #F5AF00;
+    color: #484848;
+  }
+  .CalendarDay__hovered_span:active {
+    background: ##FFCB47;
+    border: 1px double ##FFCB47;
+    color: #484848;
+  }
+  .CalendarDay__blocked_calendar,
+  .CalendarDay__blocked_calendar:active,
+  .CalendarDay__blocked_calendar:hover {
+    background: #cacccd;
+    border: 1px solid #cacccd;
+    color: #82888a
+  }
+  .CalendarDay__blocked_out_of_range,
+  .CalendarDay__blocked_out_of_range:active,
+  .CalendarDay__blocked_out_of_range:hover {
+    background: #fff;
+    border: 1px solid #e4e7e7;
+    color: #cacccd
+  }
+  .CalendarDay__hovered_start_first_possible_end {
+    background: #eceeee;
+    border: 1px double #eceeee
+  }
+  .CalendarDay__hovered_start_blocked_min_nights {
+    background: #eceeee;
+    border: 1px double #e4e7e7
+  }
+  .CalendarMonth {
+    background: #fff;
+    text-align: center;
+    vertical-align: top;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+  }
+  .CalendarMonth_table {
+    border-collapse: collapse;
+    border-spacing: 0
+  }
+  .CalendarMonth_verticalSpacing {
+    border-collapse: separate
+  }
+  .CalendarMonth_caption {
+    color: #484848;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 22px;
+    padding-bottom: 37px;
+    caption-side: initial
+  }
+  .CalendarMonth_caption__verticalScrollable {
+    padding-top: 12px;
+    padding-bottom: 7px
+  }
+  .CalendarMonthGrid {
+    background: #fff;
+    text-align: left;
+    z-index: 0
+  }
+  .CalendarMonthGrid__animating {
+    z-index: 1
+  }
+  .CalendarMonthGrid__horizontal {
+    position: absolute;
+    left: 9px
+  }
+  .CalendarMonthGrid__vertical,
+  .CalendarMonthGrid__vertical_scrollable {
+    margin: 0 auto
+  }
+  .CalendarMonthGrid_month__horizontal {
+    display: inline-block;
+    vertical-align: top;
+    min-height: 100%
+  }
+  .CalendarMonthGrid_month__hideForAnimation {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none
+  }
+  .CalendarMonthGrid_month__hidden {
+    visibility: hidden
+  }
+  
+  
+  .DateInput {
+    margin: 0;
+    padding: 0;
+
+    position: relative;
+    width: 130px;
+    vertical-align: middle;
+    height: 50px !important;
+    font-family: inherit !important;
+    display: flex;
+    line-height: inherit !important;
+    background-color: rgba(201, 76, 76, 0);
+
+  }
+
+  .DateInput__small {
+    width: 97px
+  }
+  .DateInput__block {
+    width: 100%
+  }
+  .DateInput__disabled {
+    background: #f2f2f2;
+    color: #dbdbdb
+  }
+
+
+
+
+  .DateInput_input {
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.4px;
+    color: #000 !important;
+    /* background-color: #fff; */
+    width: 100%;
+    padding: 11px 11px 9px;
+    border: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 2px solid transparent;
+    border-left: 0;
+    border-radius: 0;
+    font-size: inherit !important;
+  }
+  
+  .DateInput_input__focused {
+    outline: 0;
+    background: rgba(201, 76, 76, 0);
+    border: 0;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    font-size: inherit !important;
+    color: #000 !important;
+
+  }
+ 
+  .DateInput_screenReaderMessage {
+    border: 0;
+    clip: rect(0,0,0,0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px
+  }
+  .DateInput_fang {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    left: 22px;
+    z-index: 2
+  }
+  .DateInput_fangShape {
+    fill: #fff
+  }
+  .DateInput_fangStroke {
+    stroke: #dbdbdb;
+    fill: transparent
+  }
+  .DateRangePickerInput {
+    background-color: #ECECEC;
+    display: inline-flex;
+    color: #000 !important;
+
+  }
+ 
+  .DateRangePickerInput__withBorder {
+    border: none !important;
+    height: 50px  !important;
+    border-radius: 0px !important;
+    color: #000 !important;
+
+  }
+  .DateRangePickerInput__rtl {
+    direction: rtl
+  }
+  .DateRangePickerInput__block {
+    display: block
+  }
+  .DateRangePickerInput__showClearDates {
+    padding-right: 30px
+  }
+  .DateRangePickerInput_arrow {
+    display: inline-block;
+    vertical-align: middle;
+    color: #484848
+  }
+  .DateRangePickerInput_arrow_svg {
+    vertical-align: middle;
+    fill: #484848;
+    height: 24px;
+    width: 24px
+  }
+  .DateRangePickerInput_clearDates {
+    background: 0 0;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 10px 0 5px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%)
+  }
+  .DateRangePickerInput_clearDates__small {
+    padding: 6px
+  }
+  .DateRangePickerInput_clearDates_default:focus,
+  .DateRangePickerInput_clearDates_default:hover {
+    background: #dbdbdb;
+    border-radius: 50%
+  }
+  .DateRangePickerInput_clearDates__hide {
+    visibility: hidden
+  }
+  .DateRangePickerInput_clearDates_svg {
+    fill: #82888a;
+    height: 12px;
+    width: 15px;
+    vertical-align: middle
+  }
+  .DateRangePickerInput_clearDates_svg__small {
+    height: 9px
+  
+  }
+  .DateRangePicker {
+    position: relative;
+    display: inline-block;
+    margin-left: 38px;
+    border-right: solid 0.5px #000;
+    color: #000 !important;
+
+  }
+  .DateRangePicker__block {
+    display: block
+  }
+  .DateRangePicker_picker {
+    z-index: 1;
+    background-color: #fff;
+    position: absolute;
+    top: 115px !important;
+    left: -145px !important;
+}
+  
+  .DateRangePicker_picker__rtl {
+    direction: rtl
+  }
+  .DateRangePicker_picker__directionLeft {
+    left: 0
+  }
+  .DateRangePicker_picker__directionRight {
+    right: 0
+  }
+  .DateRangePicker_picker__portal {
+    background-color: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%
+  }
+  .DateRangePicker_picker__fullScreenPortal {
+    background-color: #fff
+  }
+  .DateRangePicker_closeButton {
+    background: 0 0;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px;
+    z-index: 2
+  }
+  .DateRangePicker_closeButton:focus,
+  .DateRangePicker_closeButton:hover {
+    color: darken(#cacccd,10%);
+    text-decoration: none
+  }
+  .DateRangePicker_closeButton_svg {
+    height: 15px;
+    width: 15px;
+    fill: #cacccd
+  }
