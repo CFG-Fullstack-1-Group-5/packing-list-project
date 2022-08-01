@@ -68,6 +68,8 @@ h4 {
   background-color: rgba(76, 175, 80, 0);
   padding: 12px 0 12px 12px;
   position: absolute;
+  z-index: 1;
+
 }
 
 .calendar-icon {
@@ -88,3 +90,4 @@ h4 {
 .css-319lph-ValueContainer {
   height: 50px;
 }
+

@@ -48,3 +48,21 @@ h1 {
   flex-flow: row wrap;
   justify-content: center;
 }
+
+.location-border  {
+border-right: 0.5px solid black;
+}
+
+.date-border {
+  border-right: 0.5px solid black;
+  }
+
+  .activities-border {
+    border-right: 0.5px solid black;
+    }
+
+    .style-border {
+      border-radius: 0px 25px 25px 0px;
+      border-right: solid 26px white;
+      background-color: white;
+      }
