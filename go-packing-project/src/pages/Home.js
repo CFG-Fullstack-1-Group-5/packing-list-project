@@ -10,7 +10,6 @@ import Activities from "../components/activities/Activities";
 import StyleChoice from "../components/style-choice/StyleChoice";
 import moment from "moment";
 import CurrentWeather from "../components/current-weather/CurrentWeather";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "../components/header/Header";
 
 function App() {
