@@ -39,12 +39,6 @@ h4 {
   color: #363635;
 }
 
-/* 
-.header1 {
-  font-size: 8.44rem;
-  font-weight: 700;
-
-} */
 
 .header2 {
   font-size: 5.89rem;
@@ -91,3 +85,6 @@ h4 {
   height: 50px;
 }
 
+h1 {
+  font-weight: 800 !important;
+}
