@@ -7,12 +7,20 @@ export default function ComboBox(props) {
     <>
       <img className="icon" src={user} alt="icon" />
       <select className="style">
-        <option value="Style" disabled>
+        <option defaultValue="Style">
           Style
         </option>
         <option value="Masculine">Masculine</option>
         <option value="Feminine">Feminine</option>
         <option value="Both">Both</option>
+        theme={(theme) => ({
+      ...theme,
+      borderRadius: 0,
+      colors: {
+        ...theme.colors,
+        primary: 'black',
+      },
+    })}
       </select>
     </>
   );

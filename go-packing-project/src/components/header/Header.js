@@ -11,7 +11,7 @@ function Header() {
             <img src={logo} alt="logo" />
           </Link>
           <Link to="/About">
-            <button className="aboutButton">About</button>
+            <button id="AboutButton" className="aboutButton">About</button>
           </Link>
         </nav>
       </div>
