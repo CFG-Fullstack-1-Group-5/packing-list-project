@@ -13,6 +13,8 @@
     "bootstrap": "^5.2.0",
     "date-fns": "^2.29.1",
     "dateformat": "^5.0.3",
+    "emailjs": "^4.0.0",
+    "emailjs-com": "^3.2.0",
     "moment": "^2.29.4",
     "parsedate": "^0.0.1",
     "react": "^18.2.0",
