@@ -7,7 +7,6 @@ export default function ComboBox(props) {
     <>
       <img className="icon" src={compass} alt="icon"  />
       <select className="activity">
-        
         <option value="Activities" disabled>Activities</option>
         <option value="Hiking">Hiking</option>
         <option value="Beach Days">Beach Days</option>
