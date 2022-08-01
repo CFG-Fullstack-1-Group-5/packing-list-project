@@ -100,7 +100,7 @@ function App() {
 
       <Form onSubmit={handleSubmit} id="form">
         {/* choose city */}
-        <div>
+        <div className="location-border">
           <Location
             weatherApiCall={weatherApiCall}
             storeCoordinates={storeCoordinates}
@@ -108,17 +108,17 @@ function App() {
         </div>
 
         {/* date range picker */}
-        <div>
+        <div className="date-border">
           <DateRange storeDates={storeDates} />
         </div>
 
         {/* activities dropdown */}
-        <div>
+        <div className="activities-border">
           <Activities storeActivities={storeActivities} />
         </div>
 
         {/* style dropdown */}
-        <div>
+        <div className="style-border">
           <StyleChoice />
         </div>
         <div className="submit-button-container">

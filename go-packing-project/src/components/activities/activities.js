@@ -1,18 +1,26 @@
 import React from "react";
 import compass from "../../assets/icons/compass.svg";
 import "./Activities.css";
+import Select from 'react-select'
 
 export default function ComboBox(props) {
+
+  const activities = [
+    { value: 'Hiking', label: 'Hiking' },
+    { value: 'Beach Days', label: 'Beach Days' },
+    { value: 'Out on the town', label: 'Out on the town' },
+    { value: 'Skiing', label: 'Skiing' }
+  ]
+
   return (
     <>
+    <div>
       <img className="icon" src={compass} alt="icon"  />
-      <select className="activity">
-        <option defaultValue="Activities">Activities</option>
-        <option value="Hiking">Hiking</option>
-        <option value="Beach Days">Beach Days</option>
-        <option value="Out on the town">Out on the town</option>
-        <option value="Skiing">Skiing</option>
-      </select>
+      <Select 
+      options={activities}
+      placeholder="Activties"
+      isMulti/>
+      </div>
     </>
   );
 }
