@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_API_URL, geoApiOptions } from "../../api";
 import searchIcon from "../../assets/icons/search.svg";
+import Select from "react-select";
 
 import "./Location.css";
 
@@ -58,7 +59,6 @@ const Location = (props) => {
 
           })}
           components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
-
           debounceTimeout={600}
           value={coordinates}
           onChange={handleOnChange}
