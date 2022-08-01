@@ -36,3 +36,14 @@ nav {
     margin: 15px;
     float: left;
 }
+
+#AboutButton:hover{
+    background-color: #8CC4CF;
+
+}
+
+
+#AboutButton:focus{
+    background-color: #52A6B7;
+
+}

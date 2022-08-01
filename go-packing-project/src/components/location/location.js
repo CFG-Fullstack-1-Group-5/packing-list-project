@@ -1,12 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_API_URL, geoApiOptions } from "../../api";
-import "./location.css";
-import globe from "../../assets/icons/globe.svg"
+import searchIcon from "../../assets/icons/search.svg";
+import Select from "react-select";
+
+import "./Location.css";
 
 
-const Search = ({ onSearchChange }) => {
-  const [search, setSearch] = useState(null);
+const Location = (props) => {
+  const [coordinates, setCoordinates] = useState(null);
+
+  // Call storeCoordinates function from Home.js on every render
+  useEffect(() => {
+    props.storeCoordinates(coordinates);
+    // props.weatherApiCall(locationCoordinates);
+  });
+
+  // Set coordinates state on date change
+  const handleOnChange = (location) => {
+    setCoordinates(location);
+  };
 
   const loadOptions = (inputValue) => {
     return fetch(
@@ -27,29 +40,33 @@ const Search = ({ onSearchChange }) => {
       .catch((err) => console.error(err));
   };
 
-  const handleOnChange = (searchData) => {
-    setSearch(searchData);
-    onSearchChange( );
-  };
-
-  
-
   return (
-    <div className='location'>
-      <img className="icon" src={globe} />
-      <AsyncPaginate
-        placeholder="Search for city"
-        // theme={(theme) => ({
-        //   ...theme,
-        // })}
-        debounceTimeout={600}
-        value={search}
-        onChange={handleOnChange}
-        loadOptions={loadOptions}
-      />
-  </div>
+    <>
+      <div className="DateRange">
+
+        <img
+          className="icon search-icon"
+          src={searchIcon}
+          alt="calendar-icon"
+        />
+
+        <AsyncPaginate
+
+          placeholder="City"
+          theme={(theme) => ({
+            ...theme,
+            borderRadius: "25px 0px 0px 25px",
+
+          })}
+          components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
+          debounceTimeout={600}
+          value={coordinates}
+          onChange={handleOnChange}
+          loadOptions={loadOptions}
+        />
+      </div>
+    </>
   );
 };
 
-
-export default Search;
+export default Location;

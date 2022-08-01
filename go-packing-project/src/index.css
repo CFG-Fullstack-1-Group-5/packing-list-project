@@ -5,20 +5,46 @@ body,
 }
 
 body {
-  font-family: 'Inter', sans-serif !important;
-  background: url('../src/assets/balloons.jpeg');
-  background-size: 1500px;
+  font-family: 'Poppins', sans-serif !important;
+  font-style: normal;
+  font-weight: 400;
+  background: #000;
   line-height: 1.4;
+  text-align: center;
+  background: url('../src/assets/bg_main.jpeg');
+  /* Set a specific height */
+  min-height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 1500px;
   color: #ffffff;
   text-align: center;
+
+
   /* Default font size is 16px */
 }
 
-/* .header1 {
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 1.4;
+  color: #363635;
+}
+
+/* 
+.header1 {
   font-size: 8.44rem;
   font-weight: 700;
 
-}
+} */
 
 .header2 {
   font-size: 5.89rem;
@@ -34,40 +60,31 @@ body {
   font-size: 2.3rem;
   font-weight: 300;
   text-transform: uppercase;
-} */
-
-/* input,
-textarea {
-    width: 300px !important;
-    border: 0 !important;
-    box-shadow: 4px;
-    height: 45px;
-    padding-left: 20px;
-    color: hsl(0, 0%, 50%) !important;
-} */
-
-/* .container {
-  width:  500vw important;
-  margin: 300px auto;
-  justify-content: center !important;
-} */
-
-
-/* .col::before {
-  padding: 0px !important;
-  margin: 0px;
-  width: 20vw !important;
-}
-.col {
-  width: 20vw !important;
-  padding: 0px !important;
-  flex-grow: 0 !important;
-
 }
 
-.row {
-  margin-right: -15px;
-  margin-left: -15px;
-  width: 80vw;
-} */
 
+.icon {
+  height: 50px;
+  background-color: rgba(76, 175, 80, 0);
+  padding: 12px 0 12px 12px;
+  position: absolute;
+}
+
+.calendar-icon {
+  margin-right: 39px;
+  background-color: white;
+}
+
+.search-icon {
+  margin-right: 0px;
+  background-color: none;
+  z-index: 1;
+}
+
+.search-col {
+  padding: 0 !important;
+}
+
+.css-319lph-ValueContainer {
+  height: 50px;
+}

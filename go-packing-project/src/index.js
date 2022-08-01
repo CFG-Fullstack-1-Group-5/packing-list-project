@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 
 import Home from "./pages/Home";
+import About from "./pages/About";
 import Email from "./pages/Email";
 import Fashion from "./pages/Fashion";
 
@@ -16,6 +17,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/About" element={<About />} />
         <Route path="/email" element={<Email />} />
         <Route path="/fashion" element={<Fashion />} />
       </Routes>
