@@ -2,6 +2,7 @@
   "name": "go-packing",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@adobe/react-spectrum": "^3.19.0",
     "@emotion/react": "^11.9.3",
