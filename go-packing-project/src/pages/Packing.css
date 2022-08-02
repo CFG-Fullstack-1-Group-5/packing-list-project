@@ -1,0 +1,124 @@
+.Packing {
+  background-color: #ECECEC;
+  background-image: url("../assets/bg_main.jpeg");
+  background-size: cover;
+  font: Inter;
+}
+
+.wrapper {
+  display:flex; 
+  flex-direction:row;
+  position: relative;
+  top: 100px;
+}
+
+.remove {
+  padding: 2px;
+  margin: 2px;
+}
+
+.box0 {
+  text-align: left;
+  position: relative;
+  color: white;
+  border-radius: 25px;
+  width: 10%;
+  height: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
+
+.box1 {
+  text-align: center;
+  position: relative;
+  background-color: white;
+  color: black;
+  border-radius: 25px;
+  width: 10%;
+  height: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
+
+.box2 {
+  box-sizing: border-box;
+  text-align: left;
+  background-color: white;
+  color: black;
+  border-radius: 25px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1%;
+}
+
+.twocolumns {
+  columns: 2 auto;
+}
+
+.yellow {
+  background-color: #F9E7A3;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  margin: 30px;
+}
+
+h2 {
+  padding: 0px;
+  margin: 0px;
+}
+
+.packing {
+  padding: 0px;
+  margin: 0px;
+}
+
+.checklist {
+  font-family: sans-serif;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.title {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.list-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.checked-item,
+.not-checked-item {
+  margin-left: 10px;
+}
+.checked-item {
+  text-decoration: line-through;
+}
+
+.logoSize {
+  max-height: 20%;
+  max-width: 20%;
+  padding: 10px;
+  text-align: left;
+}
+
+.locationimage {
+  max-height:35%;
+  max-width:35%;
+  display: inline-block;
+  float: left;
+}
