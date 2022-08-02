@@ -44,14 +44,9 @@ def find_activity(json_call):
     activity_selected.append("essential")
     return ','.join(activity_selected)
 
-def assign_variables():
-    style_found = find_style(input_retrieved)
-    activity_found = find_activity(input_retrieved)
-    temperature = average_temp(input_retrieved)
-    num_days = count_days(input_retrieved)
-    variants = ','.join([find_rain(input_retrieved)] +
+style_found = find_style(input_retrieved)
+activity_found = find_activity(input_retrieved)
+temperature = average_temp(input_retrieved)
+num_days = count_days(input_retrieved)
+variants = ','.join([find_rain(input_retrieved)] +
                         [find_snow(input_retrieved)] + [find_sun(input_retrieved)])
-
-
-if __name__ == '__main__':
-    assign_variables()
