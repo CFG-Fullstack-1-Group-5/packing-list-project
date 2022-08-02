@@ -1,6 +1,6 @@
 import React from "react";
 import compass from "../../assets/icons/compass.svg";
-import "./Activities.css";
+import "./activities.css";
 import Select from 'react-select'
 
 export default function ComboBox(props) {
@@ -18,7 +18,7 @@ export default function ComboBox(props) {
       <img className="icon" src={compass} alt="icon"  />
       <Select 
       options={activities}
-      placeholder="Activties"
+      placeholder="Activities"
       isMulti/>
       </div>
     </>

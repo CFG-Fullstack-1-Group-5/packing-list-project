@@ -1,12 +1,12 @@
 import "./Home.css";
 
-import Location from "../components/location/Location";
+import Location from "../components/location/location";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "../api";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import DateRange from "../components/date-range/DateRange";
-import Activities from "../components/activities/Activities";
+import Activities from "../components/activities/activities";
 import StyleChoice from "../components/style-choice/StyleChoice";
 import moment from "moment";
 import CurrentWeather from "../components/current-weather/CurrentWeather";

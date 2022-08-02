@@ -4,7 +4,7 @@ import { GEO_API_URL, geoApiOptions } from "../../api";
 import searchIcon from "../../assets/icons/search.svg";
 import Select from "react-select";
 
-import "./Location.css";
+import "./location.css";
 
 
 const Location = (props) => {
