@@ -18,7 +18,7 @@ export default function ComboBox(props) {
       <img className="icon" src={compass} alt="icon"  />
       <Select 
       options={activities}
-      placeholder="Activties"
+      placeholder="Activities"
       isMulti/>
       </div>
     </>
