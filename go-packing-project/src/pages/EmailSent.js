@@ -9,8 +9,8 @@ export default function EmailSentPage() {
 
   const navigateToList = () => {
     navigate('/packing');
-  
   };
+  
     return (
       <>
         <Header />

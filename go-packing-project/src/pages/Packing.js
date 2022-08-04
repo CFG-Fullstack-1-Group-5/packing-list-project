@@ -3,6 +3,9 @@ import { format } from 'date-fns';
 import CheckList from '../components/checklist/Checklist';
 import Header from '../components/header/Header';
 import "./Packing.css";
+import email from "../assets/icons/email.svg"
+import { useNavigate } from "react-router-dom";
+
 
 function Packing() {
   // usestate for setting a javascript
@@ -45,6 +48,12 @@ function Packing() {
     );
   }, []);
 
+  const navigate = useNavigate();
+
+  const navigateToEmail = () => {
+    navigate('/email');
+  };
+
   return (
     <div className="Packing">
       <Header />
@@ -76,8 +85,15 @@ function Packing() {
         <CheckList list={data.extras} />
         </div>
       </div>
+      <div className="send-to-email">
+          <button id="send-to-email-button" onClick={navigateToEmail}>
+            <img src={email} alt="icon" className="mail-icon"/>
+            Send to email
+          </button>
+      </div>
     </div>
   );
 }
+
 
 export default Packing;
