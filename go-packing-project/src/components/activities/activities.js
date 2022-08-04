@@ -3,6 +3,13 @@ import compass from "../../assets/icons/compass.svg";
 import "./activities.css";
 import Select from 'react-select'
 
+const styling = {
+  container: base => ({
+    ...base,
+    flex: 1
+  })
+};
+
 export default function ComboBox(props) {
 
   const activities = [
@@ -18,6 +25,8 @@ export default function ComboBox(props) {
       <img className="icon" src={compass} alt="icon"  />
       <Select 
       options={activities}
+      styles={styling}
+      components={{DropdownIndicator: () => null, IndicatorSeparator: () => null,}}
       placeholder="Activities"
       isMulti/>
       </div>

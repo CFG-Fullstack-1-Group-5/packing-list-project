@@ -6,6 +6,12 @@ import Select from "react-select";
 
 import "./location.css";
 
+const styling = {
+  container: base => ({
+    ...base,
+    flex: 1
+  })
+};
 
 const Location = (props) => {
   const [coordinates, setCoordinates] = useState(null);
@@ -63,6 +69,7 @@ const Location = (props) => {
           value={coordinates}
           onChange={handleOnChange}
           loadOptions={loadOptions}
+          styles={styling}
         />
       </div>
     </>

@@ -3,7 +3,7 @@ import "./Home.css";
 import Location from "../components/location/location";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "../api";
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import DateRange from "../components/date-range/DateRange";
 import Activities from "../components/activities/activities";
@@ -97,7 +97,7 @@ function App() {
         <h1>pack for your holiday</h1>
       </div>
 
-      <Form onSubmit={handleSubmit} id="form">
+      <Form onSubmit={handleSubmit} id='form'>
         {/* choose city */}
         <div className="location-border">
           <Location
@@ -120,12 +120,12 @@ function App() {
         <div className="style-border">
           <StyleChoice />
         </div>
-        <div className="submit-button-container">
+      </Form>
+      <div className="submit-button-container">
           <button id="submit-button" onSubmit={handleSubmit}>
             Create my List
           </button>
         </div>
-      </Form>
       {currentWeather && <CurrentWeather data={currentWeather} />}
     </>
   );

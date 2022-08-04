@@ -29,7 +29,7 @@ export default function sendEmail() {
       </div>
 
       <div className="email-form">
-        <Form onSubmit={emailForm} id="form">
+        <Form onSubmit={emailForm} id="email-form">
           <div className="email-icon">
             <img className="email-icon-position" src={email} alt="icon" />
           </div>
