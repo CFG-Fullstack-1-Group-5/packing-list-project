@@ -2,7 +2,7 @@ import "./Home.css";
 
 import Location from "../components/location/Location";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "../api";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import DateRange from "../components/date-range/DateRange";
@@ -17,8 +17,9 @@ function App() {
   const [forecast, setForecast] = useState(null);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [activititesValue, setActivitiesValue] = useState("Activities data:");
-  const [styleChoiceValue, setStyleChoiceValue] = useState("Style Choice data:");
+  const [activitiyValue, setActivitiyValue] = useState(null);
+  const [styleValue, setStyleValue] = useState(null);
+
   const [locationCoordinates, setLocationCoordinates] = useState("coords here");
 
   // Set the startDate and endDate
@@ -31,28 +32,15 @@ function App() {
   const startDateFormated = moment(`${startDate}`).format("YYYY-MM-DD");
   const endDateFormated = moment(`${endDate}`).format("YYYY-MM-DD");
 
-
-
-    // Set activities choice
-    const storeActivities = (activititesValue) => {
-      setActivitiesValue(activititesValue);
-    };
-  
-    useEffect(() => {
-      storeActivities(activititesValue);
-    }, [activititesValue]);
-
-      
-  // Set styleChoice choice
-  const storeStyleChoice = (styleChoiceValue) => {
-    setStyleChoiceValue(styleChoiceValue);
+  // Set activities choice
+  const storeActivities = (activitiyValue) => {
+    setActivitiyValue(activitiyValue);
   };
 
-    useEffect(() => {
-      storeStyleChoice(styleChoiceValue);
-    }, [styleChoiceValue]);
-
-
+   // Set styles choice
+   const storeStyles = (styleValue) => {
+    setStyleValue(styleValue);
+  };
 
   // Set location coordinates
   const storeCoordinates = (coords) => {
@@ -60,26 +48,26 @@ function App() {
   };
 
   // stop page from reloading on button click
-  // log activities choice
-  //log API call
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Activities choice: ${activititesValue}`);
-    console.log(`Style choice: ${styleChoiceValue}`);
+    console.log("Submit clicked");
+    console.log(`Activities: ${activitiyValue}`);
+    console.log(`Styles: ${styleValue}`);
+
     weatherApiCall();
+    // console.log(forecast);
   };
 
   const weatherApiCall = () => {
-    //Don't attempt to call API until both dates are input in calendar
+    //Don't attempt to call API until dates are input in calendar
     if (startDate && endDate != null) {
       //Split value of latitude and longitude  for later use
       const [lat, lon] = locationCoordinates.value.split(" ");
 
-      // Weather API endpoint using just location with no dates
+      // Weather API endpoint
       const currentWeatherFetch = fetch(
         `${WEATHER_API_URL}/timeline/${lat},${lon}?unitGroup=metric&key=${WEATHER_API_KEY}`
       );
-      // Weather API endpoint using location and dates 
       const forecastFetch = fetch(
         `${WEATHER_API_URL}/timeline/${lat},${lon}/${startDateFormated}/${endDateFormated}?unitGroup=metric&key=${WEATHER_API_KEY}`
       );
@@ -99,11 +87,12 @@ function App() {
     }
   };
 
-  //displays API results in console but only if dates entered before location
   if (startDateFormated && endDateFormated != null) {
     console.log(currentWeather);
     console.log(forecast);
   }
+
+  //displays API results in console but only if dates entered before location
 
   //home page form
   return (
@@ -135,18 +124,14 @@ function App() {
 
         {/* style dropdown */}
         <div className="style-border">
-          <StyleChoice storeStyleChoice={storeStyleChoice} />
+          <StyleChoice storeStyles={storeStyles} />
         </div>
-        {/* create my list button */}
-
         <div className="submit-button-container">
           <button id="submit-button" onSubmit={handleSubmit}>
             Create my List
           </button>
         </div>
       </Form>
-
-      {/* current weather widget */}
       {currentWeather && <CurrentWeather data={currentWeather} />}
     </>
   );

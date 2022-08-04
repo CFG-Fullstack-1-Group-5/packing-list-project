@@ -3,7 +3,7 @@ import user from "../../assets/icons/user.svg";
 import "./StyleChoice.css";
 import Select from 'react-select'
 
-export default function StyleChoiceComboBox(props) {
+export default function StyleList(props) {
 
   const styles = [
     { value: 'Masculine', label: 'Masculine' },
@@ -11,39 +11,30 @@ export default function StyleChoiceComboBox(props) {
     { value: 'Both', label: 'Both' }
   ]
 
-  const styling = {
-    container: base => ({
-      ...base,
-      flex: 1
-    })
-  };
-  
-  // set value for stylechoice selection
-  const [styleChoiceValue, setStyleChoiceValue] = useState(null);
+  // set value for style selection
+  const [styleValue, setStyleValue] = useState(null);
 
- // On each re-render, pass the stylechoice data up to storeSstyleChoice() in Home.js via props
- useEffect(() => {
-  props.storeStyleChoice(styleChoiceValue);
-}, [styleChoiceValue]);
+    // On each re-render, pass the styles up to storeStyles() in Home.js via props
+    useEffect(() => {
+      props.storeStyles(styleValue);
+    });
 
-  //handle onchange event of the dropdown
-  const handleChange = (e) => {
-    setStyleChoiceValue(e.value);
+      // handle onChange event of the dropdown
+  const handleChange = e => {
+    setStyleValue(e.value);
   }
-
 
   return (
     <>
      <div className="style">
       <img className="icon" src={user} alt="icon" />
-      <Select  id="selectedStyleChoice"
-      options={styles}
-      styles={styling}
+      <Select 
       placeholder="Style"
-      components={{DropdownIndicator: () => null, IndicatorSeparator: () => null,}}
+      options={styles} // set list of the data
+      value={styles.find(obj => obj.value === styleValue)} // set selected value
       onChange={handleChange} // assign onChange function
-     />
-      </div>
+    />
+  </div>
     </>
   );
 }

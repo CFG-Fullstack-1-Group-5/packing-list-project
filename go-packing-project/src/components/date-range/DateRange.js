@@ -6,13 +6,6 @@ import { DateRangePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 import "./DateRange.css";
 
-const styling = {
-  container: base => ({
-    ...base,
-    flex: 1
-  })
-};
-
 function DateRange(props) {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -23,14 +16,6 @@ function DateRange(props) {
     props.storeDates(startDate, endDate);
   });
 
-  // width: 25%;
-  // margin: 0;
-  // height: 40px;
-  // padding: 0;
-  // background-color: #ECECEC;
-  // border: none;
-  // color: #6D6D6D;
-  // padding: 12px;
   return (
     <>
       <div className="DateRange">
@@ -54,7 +39,6 @@ function DateRange(props) {
           focusedInput={focusedInput}
           onFocusChange={(e) => setFocusedInput(e)}
           displayFormat="DD/MM/YYYY"
-          styles={styling}
         />
       </div>
     </>
