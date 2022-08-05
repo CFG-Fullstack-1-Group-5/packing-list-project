@@ -5,11 +5,27 @@ import Select from 'react-select'
 
 export default function StyleList(props) {
 
-  const styles = [
-    { value: 'Masculine', label: 'Masculine' },
-    { value: 'Feminine', label: 'Feminine' },
-    { value: 'Both', label: 'Both' }
-  ]
+import Select from 'react-select';
+import { useState} from 'react';
+import { startOfWeek } from "date-fns";
+// import { SettingsRemoteSharp } from "@material-ui/icons";
+
+const styles = [
+  { value: 'Masculine', label: 'Masculine' },
+  { value: 'Feminine', label: 'Feminine' },
+  { value: 'Both', label: 'Both' }
+]
+
+const styling = {
+  container: base => ({
+    ...base,
+    flex: 1
+  })
+};
+
+
+
+export default function ComboBox(props) {
 
   // set value for style selection
   const [styleValue, setStyleValue] = useState(null);
@@ -26,15 +42,15 @@ export default function StyleList(props) {
 
   return (
     <>
-     <div className="style">
       <img className="icon" src={user} alt="icon" />
       <Select 
       placeholder="Style"
       options={styles} // set list of the data
       value={styles.find(obj => obj.value === styleValue)} // set selected value
       onChange={handleChange} // assign onChange function
+      styles={styling}
+      components={{DropdownIndicator: () => null, IndicatorSeparator: () => null,}}
     />
-  </div>
     </>
   );
 }

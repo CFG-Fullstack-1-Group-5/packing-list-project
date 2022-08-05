@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
 import compass from "../../assets/icons/compass.svg";
-import "./Activities.css";
+import "./activities.css";
 import Select from 'react-select'
 
 export default function ActivitiesList(props) {
+const styling = {
+  container: base => ({
+    ...base,
+    flex: 1
+  })
+};
+
+export default function ComboBox(props) {
 
   const activities = [
     { value: 'Hiking', label: 'Hiking' },
@@ -35,6 +43,8 @@ export default function ActivitiesList(props) {
           options={activities} // set list of the data
           value={activities.find(obj => obj.value === activitiyValue)} // set selected value
           onChange={handleChange} // assign onChange function
+          styles={styling}
+          components={{DropdownIndicator: () => null, IndicatorSeparator: () => null,}}
         />
       </div>
     </>

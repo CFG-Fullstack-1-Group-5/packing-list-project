@@ -4,9 +4,10 @@ import Header from "../components/header/Header";
 import Form from 'react-bootstrap/Form';
 import email from "../assets/icons/email.svg"
 import emailjs from "emailjs-com";
+import { useNavigate } from "react-router-dom";
 
 
-export default function sendEmail() {
+export default function SendEmail() {
 
   function emailForm(e) {
     e.preventDefault();
@@ -18,7 +19,14 @@ export default function sendEmail() {
         console.log(error.text);
       });
       e.target.reset()
-  }
+  };
+
+  const navigate = useNavigate();
+
+  const navigateToEmailSent = () => {
+    navigate('/emailsent');
+  };
+
   return (
 
     <>
@@ -29,13 +37,13 @@ export default function sendEmail() {
       </div>
 
       <div className="email-form">
-        <Form onSubmit={emailForm} id="form">
+        <Form onSubmit={emailForm} id="email-form">
           <div className="email-icon">
             <img className="email-icon-position" src={email} alt="icon" />
           </div>
           <Form.Control className="email-placeholder" type="email" placeholder="Enter email" />
           <div>
-            <button id="email-button" >
+            <button id="email-button" onClick={navigateToEmailSent}>
               Send
             </button>
           </div>
