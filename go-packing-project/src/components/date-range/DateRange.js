@@ -23,14 +23,6 @@ function DateRange(props) {
     props.storeDates(startDate, endDate);
   });
 
-  // width: 25%;
-  // margin: 0;
-  // height: 40px;
-  // padding: 0;
-  // background-color: #ECECEC;
-  // border: none;
-  // color: #6D6D6D;
-  // padding: 12px;
   return (
     <>
       <div className="DateRange">

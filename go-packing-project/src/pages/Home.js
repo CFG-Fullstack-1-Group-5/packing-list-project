@@ -17,7 +17,9 @@ function App() {
   const [forecast, setForecast] = useState(null);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [ComboBox, setActivities] = useState(null);
+  const [activitiyValue, setActivitiyValue] = useState(null);
+  const [styleValue, setStyleValue] = useState(null);
+
   const [locationCoordinates, setLocationCoordinates] = useState("coords here");
 
   // Set the startDate and endDate
@@ -31,28 +33,32 @@ function App() {
   const endDateFormated = moment(`${endDate}`).format("YYYY-MM-DD");
 
   // Set activities choice
-  const storeActivities = (activities) => {
-    setActivities(activities);
-    console.log(`Activities ${ComboBox}`);
+  const storeActivities = (activitiyValue) => {
+    setActivitiyValue(activitiyValue);
+  };
+
+   // Set styles choice
+   const storeStyles = (styleValue) => {
+    setStyleValue(styleValue);
   };
 
   // Set location coordinates
   const storeCoordinates = (coords) => {
-    console.log("Setting coords");
     setLocationCoordinates(coords);
-    console.log(locationCoordinates);
   };
 
   // stop page from reloading on button click
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Submit clicked");
+    console.log(`Activities: ${activitiyValue}`);
+    console.log(`Styles: ${styleValue}`);
+
     weatherApiCall();
     // console.log(forecast);
   };
 
   const weatherApiCall = () => {
-    console.log("calling api");
     //Don't attempt to call API until dates are input in calendar
     if (startDate && endDate != null) {
       //Split value of latitude and longitude  for later use
@@ -118,7 +124,7 @@ function App() {
 
         {/* style dropdown */}
         <div className="style-border">
-          <StyleChoice />
+          <StyleChoice storeStyles={storeStyles} />
         </div>
       </Form>
       <div className="submit-button-container">

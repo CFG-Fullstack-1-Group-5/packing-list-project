@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import compass from "../../assets/icons/compass.svg";
 import "./activities.css";
 import Select from 'react-select'
 
+export default function ActivitiesList(props) {
 const styling = {
   container: base => ({
     ...base,
@@ -19,16 +20,32 @@ export default function ComboBox(props) {
     { value: 'Skiing', label: 'Skiing' }
   ]
 
+  // set value for actvities selection
+  const [activitiyValue, setActivitiyValue] = useState(null);
+
+    // On each re-render, pass the activities up to storeActivities() in Home.js via props
+    useEffect(() => {
+      props.storeActivities(activitiyValue);
+    });
+
+    
+  // handle onChange event of the dropdown
+  const handleChange = e => {
+    setActivitiyValue(e.value);
+  }
+
   return (
     <>
-    <div>
-      <img className="icon" src={compass} alt="icon"  />
-      <Select 
-      options={activities}
-      styles={styling}
-      components={{DropdownIndicator: () => null, IndicatorSeparator: () => null,}}
-      placeholder="Activities"
-      isMulti/>
+      <div>
+        <img className="icon" src={compass} alt="icon" />
+        <Select
+          placeholder="Activities"
+          options={activities} // set list of the data
+          value={activities.find(obj => obj.value === activitiyValue)} // set selected value
+          onChange={handleChange} // assign onChange function
+          styles={styling}
+          components={{DropdownIndicator: () => null, IndicatorSeparator: () => null,}}
+        />
       </div>
     </>
   );
