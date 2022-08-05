@@ -41,25 +41,33 @@ h1 {
 }
 
 #form {
+  width: 80vw;
+  margin-left:  auto;
+  margin-right:  auto;
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 .location-border  {
-border-right: 0.5px solid black;
+  width: 25%;
+  border-right: 0.5px solid black;
 }
 
 .date-border {
+  width: 25%;
   border-right: 0.5px solid black;
   }
 
-  .activities-border {
-    border-right: 0.5px solid black;
-    }
+.activities-border {
+  width: 25%;
+  border-right: 0.5px solid black;
+  }
 
-    .style-border {
-      border-radius: 0px 25px 25px 0px;
-      border-right: solid 26px white;
-      background-color: white;
-      }
+.style-border {
+  width: 25%;
+  border-radius: 0px 25px 25px 0px;
+  border-right: solid 26px white;
+  background-color: white;
+  }
