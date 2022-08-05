@@ -1,0 +1,29 @@
+.Welcome {
+    text-align: center;
+}
+
+.email-sent-subheader {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    }
+
+#return-button {
+    width: 180px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #FEB500;
+    border: solid grey 1px;
+    outline: none;
+    color: black;
+}
+
+#return-button:hover {
+    background-color: #F5AF00;
+  }

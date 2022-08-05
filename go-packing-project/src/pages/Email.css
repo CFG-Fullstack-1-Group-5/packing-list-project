@@ -1,8 +1,10 @@
 .email-subheader {
-    width: 100%;
+width: 100%;
 text-align: center;
 color: white;
+font-size: 24px;
 font-weight: 400;
+font-family: 'Poppins', sans-serif;
 }
 
 .email-form {
