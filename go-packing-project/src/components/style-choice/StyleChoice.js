@@ -2,11 +2,6 @@ import React, { useState, useEffect } from "react";
 import user from "../../assets/icons/user.svg";
 import "./StyleChoice.css";
 import Select from 'react-select'
-
-export default function StyleList(props) {
-
-import Select from 'react-select';
-import { useState} from 'react';
 import { startOfWeek } from "date-fns";
 // import { SettingsRemoteSharp } from "@material-ui/icons";
 
@@ -25,7 +20,7 @@ const styling = {
 
 
 
-export default function ComboBox(props) {
+export default function StyleList(props) {
 
   // set value for style selection
   const [styleValue, setStyleValue] = useState(null);

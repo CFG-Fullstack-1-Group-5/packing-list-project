@@ -64,15 +64,10 @@ h1 {
   height: 50px !important;
 }
 
-.activities-border {
-  border-right: 0.5px solid black;
-  height: 50px !important;
-
 .style{
   border-radius: 0px 25px 25px 0px;
   border-right: solid 26px white;
-  background-color: white;
-  
+  background-color: white; 
 }
 
 .activities-border {

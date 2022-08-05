@@ -3,7 +3,7 @@ import compass from "../../assets/icons/compass.svg";
 import "./activities.css";
 import Select from 'react-select'
 
-export default function ActivitiesList(props) {
+
 const styling = {
   container: base => ({
     ...base,
@@ -11,7 +11,7 @@ const styling = {
   })
 };
 
-export default function ComboBox(props) {
+export default function ActivitiesList(props) {
 
   const activities = [
     { value: 'Hiking', label: 'Hiking' },
@@ -48,5 +48,4 @@ export default function ComboBox(props) {
         />
       </div>
     </>
-  );
-}
+  );}
