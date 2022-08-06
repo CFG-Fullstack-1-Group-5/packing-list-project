@@ -5,12 +5,6 @@ import Select from 'react-select'
 import { startOfWeek } from "date-fns";
 // import { SettingsRemoteSharp } from "@material-ui/icons";
 
-const styles = [
-  { value: 'Masculine', label: 'Masculine' },
-  { value: 'Feminine', label: 'Feminine' },
-  { value: 'Both', label: 'Both' }
-]
-
 const styling = {
   container: base => ({
     ...base,
@@ -18,34 +12,38 @@ const styling = {
   })
 };
 
+export default function Style(props) {
 
+  const styles = [
+    { value: 'masculine', label: 'Masculine' },
+    { value: 'feminine', label: 'Feminine' },
+    { value: 'unisex', label: 'Unisex' }
+  ];
 
-export default function StyleList(props) {
+  const [selectedValue, setSelectedValue] = useState('Style');
 
-  // set value for style selection
-  const [styleValue, setStyleValue] = useState(null);
+  useEffect(() => {
+    props.storeStyle(selectedValue);
+  });
 
-    // On each re-render, pass the styles up to storeStyles() in Home.js via props
-    useEffect(() => {
-      props.storeStyles(styleValue);
-    });
-
-      // handle onChange event of the dropdown
-  const handleChange = e => {
-    setStyleValue(e.value);
-  }
+  const handleChange = (e) => {
+    setSelectedValue(Array.isArray(e) ? e.map(x => x.value) : []);
+  };
 
   return (
     <>
+     <div className="style">
       <img className="icon" src={user} alt="icon" />
       <Select 
+      
+      options={styles}
+      value={styles.filter(obj => selectedValue.includes(obj.value))}
+      onChange={handleChange}
       placeholder="Style"
-      options={styles} // set list of the data
-      value={styles.find(obj => obj.value === styleValue)} // set selected value
-      onChange={handleChange} // assign onChange function
       styles={styling}
-      components={{DropdownIndicator: () => null, IndicatorSeparator: () => null,}}
-    />
+      isMulti
+       />
+      </div>
     </>
   );
 }

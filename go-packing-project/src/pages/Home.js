@@ -1,26 +1,25 @@
 import "./Home.css";
-
-import Location from "../components/location/location";
-import { WEATHER_API_URL, WEATHER_API_KEY } from "../api";
+import Location from "../components/location/Location";
+import { WEATHER_API_URL, WEATHER_API_KEY, WEATHER_API_PARAMS } from "../api";
 import { useState } from "react";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import DateRange from "../components/date-range/DateRange";
-import Activities from "../components/activities/activities";
+import Activities from "../components/activities/Activities";
 import StyleChoice from "../components/style-choice/StyleChoice";
 import moment from "moment";
-import CurrentWeather from "../components/current-weather/CurrentWeather";
+import Forecast from "../components/forecast/Forecast";
 import Header from "../components/header/Header";
 
-function App() {
-  const [currentWeather, setCurrentWeather] = useState(null);
+const App = () => {
+
   const [forecast, setForecast] = useState(null);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [activitiyValue, setActivitiyValue] = useState(null);
-  const [styleValue, setStyleValue] = useState(null);
-
+  const [activities, setActivities] = useState(null);
+  const [style, setStyle] = useState(null);
   const [locationCoordinates, setLocationCoordinates] = useState("coords here");
+
 
   // Set the startDate and endDate
   const storeDates = (start, end) => {
@@ -33,13 +32,13 @@ function App() {
   const endDateFormated = moment(`${endDate}`).format("YYYY-MM-DD");
 
   // Set activities choice
-  const storeActivities = (activitiyValue) => {
-    setActivitiyValue(activitiyValue);
+  const storeActivities = (activities) => {
+    setActivities(activities);
   };
 
-   // Set styles choice
-   const storeStyles = (styleValue) => {
-    setStyleValue(styleValue);
+  // Set style choice
+  const storeStyle = (style) => {
+    setStyle(style);
   };
 
   // Set location coordinates
@@ -48,51 +47,58 @@ function App() {
   };
 
   // stop page from reloading on button click
-  const handleSubmit = (event) => {
+ const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Submit clicked");
-    console.log(`Activities: ${activitiyValue}`);
-    console.log(`Styles: ${styleValue}`);
-
+    // weatherApiCall();
+    setForecast(forecast);
+    setActivities(activities);
+    setStyle(style);
     weatherApiCall();
-    // console.log(forecast);
   };
 
   const weatherApiCall = () => {
-    //Don't attempt to call API until dates are input in calendar
-    if (startDate && endDate != null) {
-      //Split value of latitude and longitude  for later use
-      const [lat, lon] = locationCoordinates.value.split(" ");
+    if (locationCoordinates && startDate && endDate) {
 
-      // Weather API endpoint
-      const currentWeatherFetch = fetch(
-        `${WEATHER_API_URL}/timeline/${lat},${lon}?unitGroup=metric&key=${WEATHER_API_KEY}`
-      );
-      const forecastFetch = fetch(
-        `${WEATHER_API_URL}/timeline/${lat},${lon}/${startDateFormated}/${endDateFormated}?unitGroup=metric&key=${WEATHER_API_KEY}`
-      );
-
-      Promise.all([currentWeatherFetch, forecastFetch])
-        .then(async (response) => {
-          const weatherResponse = await response[0].json();
-          const forecastResponse = await response[1].json();
-
-          setCurrentWeather({
-            city: locationCoordinates.label,
-            ...weatherResponse,
-          });
-          setForecast({ city: locationCoordinates.label, ...forecastResponse });
+    const [lat, lon] = locationCoordinates.value.split(" ");
+    
+    fetch(`${WEATHER_API_URL}/timeline/${lat},${lon}/${startDateFormated}/${endDateFormated}?unitGroup=metric&key=${WEATHER_API_KEY}&${WEATHER_API_PARAMS}`)
+    .then(async (response) => {
+      const forecastResponse = await response.json();
+        // Setting a data from api
+        setForecast({
+          city: locationCoordinates.label,
+          ...forecastResponse,
         })
-        .catch((err) => console.log(err));
-    }
-  };
-
-  if (startDateFormated && endDateFormated != null) {
-    console.log(currentWeather);
-    console.log(forecast);
-  }
-
+        getList()
+      })
+        .catch((err) => {
+          console.log(err);
+        });
+}};
+    
   //displays API results in console but only if dates entered before location
+
+  // if (startDateFormated && endDateFormated != null) {
+  //   console.log(currentWeather);
+  //   console.log(forecast);
+
+  // }
+  // send list to the backend
+  const getList = () => {
+    fetch('http://localhost:5000/user_input', {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+},
+      body: JSON.stringify(
+    {
+          "weather": forecast,
+          "activities": activities,
+          "style": style })})
+   .then(res => res.json())
+   .then(res => console.log(res))};
 
   //home page form
   return (
@@ -103,18 +109,16 @@ function App() {
         <h1>pack for your holiday</h1>
       </div>
 
-      <Form onSubmit={handleSubmit} id='form'>
+      <Form onSubmit={handleSubmit} id="form" >
         {/* choose city */}
         <div className="location-border">
           <Location
-            weatherApiCall={weatherApiCall}
-            storeCoordinates={storeCoordinates}
-          />
+            storeCoordinates={storeCoordinates} />
         </div>
 
         {/* date range picker */}
         <div className="date-border">
-          <DateRange storeDates={storeDates} />
+        <DateRange storeDates={storeDates} />
         </div>
 
         {/* activities dropdown */}
@@ -124,15 +128,15 @@ function App() {
 
         {/* style dropdown */}
         <div className="style-border">
-          <StyleChoice storeStyles={storeStyles} />
+          <StyleChoice storeStyle={storeStyle}  />
         </div>
-      </Form>
-      <div className="submit-button-container">
-          <button id="submit-button" onSubmit={handleSubmit}>
+        <div className="submit-button-container">
+          <button id="submit-button">
             Create my List
           </button>
         </div>
-      {currentWeather && <CurrentWeather data={currentWeather} />}
+      </Form>
+      {forecast && <WeatherForecast data={forecast} />}
     </>
   );
 }

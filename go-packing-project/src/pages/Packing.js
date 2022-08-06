@@ -31,18 +31,16 @@ function Packing() {
   useEffect(() => {
     // Using fetch to fetch the api from 
     // flask server it will be redirected to proxy
-    fetch("/data").then((res) =>
+    fetch("http://localhost:5000/data").then((res) =>
       res.json().then((location) => {
         // Setting a data from api
-        const startDate = new Date(location.data.dates.start_date)
-        const endDate = new Date(location.data.dates.end_date)
+        const startDate = new Date(location.dates.startDate)
+        const endDate = new Date(location.dates.endDate)
         setLocation({
-          address: location.data.weather.address,
-          temperature: location.data.weather.days[0].temp,
-          conditions: location.data.weather.days[0].description,
-          activities: location.data.activities,
-          start: format(startDate, 'dd MMMM'),
-          end: format(endDate, 'MMMM dd')
+          address: location.city,
+          // activities: location.activities,
+          start: format(startDate, 'MMM dd'),
+          end: format(endDate, 'MMM dd')
         });
       })
     );
@@ -60,12 +58,12 @@ function Packing() {
       <div className="wrapper">
         <div className="box0">
           <h2>{location.address}</h2>
-          <p className="remove">{location.start} - {location.end}</p>
-          {location.activities?.map((activity, index) => (
-            <div className="packing" key={index}>
-              <span className='remove' key={index}>{activity}</span>
-            </div>
-          ))}
+          <p className="dates">{location.start} - {location.end}</p>
+          {/* // {location.activities?.map((activity, index) => (
+          //   <div className="packing" key={index}>
+          //     <span className='remove' key={index}>{activity}</span>
+          //   </div>
+          // ))} */}
         </div>
         <div className="box1">
           <p className="yellow">Weather forecast:</p>
