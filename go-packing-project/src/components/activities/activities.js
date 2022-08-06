@@ -11,27 +11,24 @@ const styling = {
   })
 };
 
-export default function ActivitiesList(props) {
+export default function Activities(props) {
 
   const activities = [
-    { value: 'Hiking', label: 'Hiking' },
-    { value: 'Beach Days', label: 'Beach Days' },
-    { value: 'Out on the town', label: 'Out on the town' },
-    { value: 'Skiing', label: 'Skiing' }
+    { value: 'hiking', label: 'Hiking' },
+    { value: 'beach', label: 'Beach Days' },
+    { value: 'ski', label: 'Skiing' },
+    {value: 'formalwear', label: 'Formal'},
+    {value: 'activewear', label: 'Active'}
   ]
 
-  // set value for actvities selection
-  const [activitiyValue, setActivitiyValue] = useState(null);
+  const [selectedValue, setSelectedValue] = useState('Activities');
 
-    // On each re-render, pass the activities up to storeActivities() in Home.js via props
-    useEffect(() => {
-      props.storeActivities(activitiyValue);
-    });
+  useEffect(() => {
+    props.storeActivities(selectedValue);
+  });
 
-    
-  // handle onChange event of the dropdown
-  const handleChange = e => {
-    setActivitiyValue(e.value);
+  const handleChange = (e) => {
+    setSelectedValue(Array.isArray(e) ? e.map(x => x.value) : []);
   }
 
   return (
@@ -39,13 +36,14 @@ export default function ActivitiesList(props) {
       <div>
         <img className="icon" src={compass} alt="icon" />
         <Select
+          options={activities}
+          value={activities.filter(obj => selectedValue.includes(obj.value))}
+          onChange={handleChange}
           placeholder="Activities"
-          options={activities} // set list of the data
-          value={activities.find(obj => obj.value === activitiyValue)} // set selected value
-          onChange={handleChange} // assign onChange function
           styles={styling}
           components={{DropdownIndicator: () => null, IndicatorSeparator: () => null,}}
-        />
+          isMulti />
       </div>
     </>
-  );}
+  );
+}  
