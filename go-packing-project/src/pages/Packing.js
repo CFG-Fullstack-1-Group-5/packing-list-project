@@ -59,11 +59,11 @@ function Packing() {
         <div className="box0">
           <h2>{location.address}</h2>
           <p className="dates">{location.start} - {location.end}</p>
-          // {location.activities?.map((activity, index) => (
+          {/* // {location.activities?.map((activity, index) => (
           //   <div className="packing" key={index}>
           //     <span className='remove' key={index}>{activity}</span>
           //   </div>
-          // ))}
+          // ))} */}
         </div>
         <div className="box1">
           <p className="yellow">Weather forecast:</p>
