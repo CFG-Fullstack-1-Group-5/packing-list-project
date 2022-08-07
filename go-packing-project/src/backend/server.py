@@ -21,8 +21,7 @@ weather_details = {'temperature': '',
                     'icon': '',
                     'feelslike': '',
                     'windspeed': '',
-                    'humidity': '',
-                    'precipitation': ''}
+                    'humidity': ''}
 
 
 @app.route('/user_input', methods=['POST'])

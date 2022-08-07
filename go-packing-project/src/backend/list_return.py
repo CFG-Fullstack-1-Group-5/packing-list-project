@@ -1,14 +1,12 @@
 def average_temp(json_call):
     average_temp = []
-    [average_temp.append(temperature['temp'])
-     for temperature in json_call['weather']['days']]
+    [average_temp.append(temperature['temp']) for temperature in json_call['weather']['days']]
     return sum(average_temp)//len(average_temp)
 
 
 def weather_condition(json_call):
     weather_conditions = []
-    [weather_conditions.append(conditions['conditions'].lower())
-     for conditions in json_call['weather']['days']]
+    [weather_conditions.append(conditions['conditions'].lower()) for conditions in json_call['weather']['days']]
     return weather_conditions
 
 
