@@ -54,6 +54,8 @@ def get_clothes():
                 clothes_list['extras'].append(item[0])
             elif item[1] == 'essential':
                 clothes_list['clothes'].append(item[0]+' x '+str(item[2]))
+            elif item[1] == 'general':
+                clothes_list['clothes'].append(item[0]+' x '+str(item[2]))
             else:
                 clothes_list['clothes'].append(item[0]+' x '+str(item[2]))
         return jsonify(clothes_list)
