@@ -26,6 +26,7 @@ def find_style(json_call):
     style_selected = []
     for style in json_call['style']:
         style_selected.append(style)
+    style_selected.append("unisex")
     return ','.join(style_selected)
 
 def find_activity(json_call):
@@ -33,6 +34,7 @@ def find_activity(json_call):
     for activity in json_call['activities']:
         activity_selected.append(activity)
     activity_selected.append("essential")
+    activity_selected.append("general")
     return ','.join(activity_selected)
 
 def find_dates(json_call):
@@ -41,10 +43,3 @@ def find_dates(json_call):
     dates['startDate'] = json_call['weather']['days'][0]['datetime']
     dates['endDate'] = json_call['weather']['days'][-1]['datetime']
     return dates
-
-# style_found = find_style(json_call)
-# activity_found = find_activity(json_call)
-# temperature = average_temp(json_call)
-# num_days = count_days(json_call)
-# variants = ','.join([find_rain(json_call)] +
-#                     [find_snow(json_call)] + [find_sun(json_call)])
