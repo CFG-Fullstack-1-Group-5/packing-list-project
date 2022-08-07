@@ -8,8 +8,8 @@ import DateRange from "../components/date-range/DateRange";
 import Activities from "../components/activities/Activities";
 import StyleChoice from "../components/style-choice/StyleChoice";
 import moment from "moment";
-import Forecast from "../components/forecast/Forecast";
 import Header from "../components/header/Header";
+import CurrentWeather from "../components/current-weather/CurrentWeather";
 
 const App = () => {
 
@@ -54,7 +54,7 @@ const App = () => {
     setForecast(forecast);
     setActivities(activities);
     setStyle(style);
-    weatherApiCall();
+    weatherApiCall()
   };
 
   const weatherApiCall = () => {
@@ -77,6 +77,7 @@ const App = () => {
         });
 }};
     
+   
   //displays API results in console but only if dates entered before location
 
   // if (startDateFormated && endDateFormated != null) {
@@ -136,7 +137,7 @@ const App = () => {
           </button>
         </div>
       </Form>
-      {forecast && <WeatherForecast data={forecast} />}
+      {forecast && <CurrentWeather data={forecast} />}
     </>
   );
 }

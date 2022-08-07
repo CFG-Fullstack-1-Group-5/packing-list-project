@@ -15,13 +15,19 @@ style_found = []
 activity_found = []
 dates = []
 city = ''
+activities = []
+weather_details = {'temperature': '',
+                    'description': '',
+                    'icon': '',
+                    'feelslike': '',
+                    'windspeed': '',
+                    'humidity': ''}
 
 
 @app.route('/user_input', methods=['POST'])
 @cross_origin()
 def get_user_input():
-    global temperature, variants, num_days, style_found, activity_found, dates, city
-    print(request.json)
+    global temperature, variants, num_days, style_found, activity_found, dates, city, activities, weather_details
     temperature = average_temp(request.json)
     variants = ','.join([find_rain(request.json)] +
                         [find_snow(request.json)] + [find_sun(request.json)])
@@ -30,6 +36,23 @@ def get_user_input():
     activity_found = find_activity(request.json)
     dates = find_dates(request.json)  
     city = request.json['weather']['city']
+    for active in activity_found.split(','):
+        if active == 'hiking':
+            activities.append('Hiking')
+        elif active == 'beach':
+            activities.append('Beach Days')
+        elif active == 'ski':
+            activities.append('Skiing')
+        elif active == 'formalwear':
+            activities.append('Formal')
+        elif active == 'active':
+            activities.append('Active')
+    weather_details = {'temperature': temperature,
+                       'description': request.json['weather']['days'][0]['conditions'],
+                       'icon': request.json['weather']['days'][0]['icon'],
+                       'feelslike': request.json['weather']['days'][0]['feelslike'],
+                       'windspeed': request.json['weather']['days'][0]['windspeed'],
+                       'humidity': request.json['weather']['days'][0]['humidity']}
     return request.json
 
 @app.route('/clothes')
@@ -38,7 +61,6 @@ def get_clothes():
     global temperature, variants, num_days, style_found, activity_found
     print(temperature)
     args = [num_days, temperature, style_found, activity_found, variants]
-    print(args)
     try:
         database_connection = pymysql.connect(host=HOST, user=USER, password=PASSWORD, database="go_packing_1")
         cursor = database_connection.cursor()
@@ -69,9 +91,11 @@ def get_clothes():
 @app.route('/data')
 @cross_origin()
 def get_display_information():
-    global dates, city
+    global dates, city, activities, weather_details
     data = {'city': city,
-            'dates': dates
+            'dates': dates,
+            'activities': activities,
+            'weather': weather_details
             }
     return jsonify(data)
 

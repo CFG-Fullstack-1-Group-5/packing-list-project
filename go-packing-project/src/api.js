@@ -11,4 +11,4 @@ export const GEO_API_URL = "https://wft-geo-db.p.rapidapi.com/v1/geo";
 
 export const WEATHER_API_URL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services"
 export const WEATHER_API_KEY = "EKGWNKZ42D6UFTCEDJJVNLCGD"
-export const WEATHER_API_PARAMS = "include=days&elements=datetime,temp,description,conditions,icon"
+export const WEATHER_API_PARAMS = "include=days,current&elements=datetime,temp,feelslike,windspeed,humidity,description,conditions,icon"
