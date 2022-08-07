@@ -5,13 +5,14 @@ import Header from '../components/header/Header';
 import "./Packing.css";
 import email from "../assets/icons/email.svg"
 import { useNavigate } from "react-router-dom";
+import ForecastWeather from "../components/forecast-weather/ForecastWeather"
 
 
 function Packing() {
   // usestate for setting a javascript
   // object for storing and using data
   const [data, setData] = useState({});
-  const [location, setLocation] = useState('');
+  const [location, setLocation] = useState({});
 
   // Using useEffect for single rendering
   useEffect(() => {
@@ -40,8 +41,16 @@ function Packing() {
           address: location.city,
           // activities: location.activities,
           start: format(startDate, 'MMM dd'),
-          end: format(endDate, 'MMM dd')
+          end: format(endDate, 'MMM dd'),
+          activities: location.activities,
+          description: location.weather.description,
+          icon: location.weather.icon,
+          temperature: location.weather.temperature,
+          feelslike: location.weather.feelslike,
+          windspeed: location.weather.windspeed,
+          humidity: location.weather.humidity
         });
+        console.log(location)
       })
     );
   }, []);
@@ -57,18 +66,17 @@ function Packing() {
       <Header />
       <div className="wrapper">
         <div className="box0">
-          <h2>{location.address}</h2>
+          <h3>{location.address}</h3>
           <p className="dates">{location.start} - {location.end}</p>
-          {/* // {location.activities?.map((activity, index) => (
-          //   <div className="packing" key={index}>
-          //     <span className='remove' key={index}>{activity}</span>
-          //   </div>
-          // ))} */}
+          {location.activities?.map((activity, index) => (
+          <div className="packing" key={index}>
+          <span className='dates' key={index}>{activity}</span>
+          </div>
+          ))}
         </div>
         <div className="box1">
           <p className="yellow">Weather forecast:</p>
-          <p>{location.temperature}°C</p>
-          <p>{location.conditions}</p>
+          <ForecastWeather data={location} />
         </div>
       </div>
       {/* Calling a data from setdata for showing */}
