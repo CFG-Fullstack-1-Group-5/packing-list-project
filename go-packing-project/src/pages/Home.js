@@ -47,46 +47,36 @@ const App = () => {
   };
 
   // stop page from reloading on button click
- const handleSubmit = (event) => {
-    event.preventDefault();
+ const handleSubmit = (e) => {
+    e.preventDefault();
     console.log("Submit clicked");
-    // weatherApiCall();
-    setForecast(forecast);
-    setActivities(activities);
-    setStyle(style);
-    weatherApiCall()
+    weatherApiCall();
   };
 
   const weatherApiCall = () => {
-    if (locationCoordinates && startDate && endDate) {
+    if ((locationCoordinates && startDate && endDate) != null) {
 
-    const [lat, lon] = locationCoordinates.value.split(" ");
-    
-    fetch(`${WEATHER_API_URL}/timeline/${lat},${lon}/${startDateFormated}/${endDateFormated}?unitGroup=metric&key=${WEATHER_API_KEY}&${WEATHER_API_PARAMS}`)
-    .then(async (response) => {
-      const forecastResponse = await response.json();
-        // Setting a data from api
-        setForecast({
-          city: locationCoordinates.label,
-          ...forecastResponse,
+      const [lat, lon] = locationCoordinates.value.split(" ");
+
+      fetch(`${WEATHER_API_URL}/timeline/${lat},${lon}/${startDateFormated}/${endDateFormated}?unitGroup=metric&key=${WEATHER_API_KEY}&${WEATHER_API_PARAMS}`)
+        .then((response) => response.json())
+        .then(forecastResponse => {
+          // Setting a data from api
+
+          const city = locationCoordinates.label;
+          const weather = { city, ...forecastResponse };
+
+          getList(weather);
+          setForecast(weather);
         })
-        getList()
-      })
         .catch((err) => {
           console.log(err);
         });
-}};
+    }
+  };
     
-   
-  //displays API results in console but only if dates entered before location
-
-  // if (startDateFormated && endDateFormated != null) {
-  //   console.log(currentWeather);
-  //   console.log(forecast);
-
-  // }
   // send list to the backend
-  const getList = () => {
+  const getList = (forecast) => {
     fetch('http://localhost:5000/user_input', {
       method: "POST",
       headers: {
@@ -109,8 +99,7 @@ const App = () => {
         <h1>Discover what to</h1>
         <h1>pack for your holiday</h1>
       </div>
-
-      <Form onSubmit={handleSubmit} id="form" >
+      <Form id="form" onSubmit={handleSubmit}>
         {/* choose city */}
         <div className="location-border">
           <Location
