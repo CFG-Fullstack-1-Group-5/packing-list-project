@@ -3,7 +3,7 @@ import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_API_URL, geoApiOptions } from "../../api";
 import searchIcon from "../../assets/icons/search.svg";
 import Select from "react-select";
-import "./Location.css";
+import "./location.css";
 
 const styling = {
   container: base => ({
