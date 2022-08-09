@@ -116,28 +116,95 @@ h2 {
   float: left;
 }
 
-#send-to-email-button {
-  width: 180px;
-  height: 50px;
-  border-radius: 30px;
-  background-color: #FEB500;
-  border: solid grey 1px;
-  outline: none;
-  color: black;
-}
-
-#send-to-email-button:hover {
-  background-color: #F5AF00;
-}
-
-
-.send-to-email {
+.email-subheader {
+  width: 100%;
   text-align: center;
-  padding-top: 50px;
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+  padding-top: 40px;
+  }
+
+.email-section {
+  padding-top: 60px;
+  }
+
+  .email-form {
+    width: 550px;
+    height: 10px;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    padding: 0;
 }
 
-.mail-icon {
-  width: 28px;
-  height: 28px;
-  margin-right: 5px;
+.form-control {
+    border-radius: 25px;
+    height: 50px;
+}
+
+.email-placeholder {
+    position: absolute;
+    padding-left: 70px;
+    display: block;
+    width: 600px;
+    font-size: 20px;
+}
+
+#email-button {
+    width: 80px;
+    height: 35px;
+    border-radius: 30px;
+    background-color: #fff;
+    border: solid grey 1px;
+    outline: none;
+    color: black;
+    position: relative;
+    margin-top: 7px;
+    left: 510px !important;
+}
+
+  #email-button:enabled:hover {
+    background-color: #F5AF00;
+    z-index: 2 !important;
+  }
+  #email-button:focus {
+    background-color: #E0A100;
+  }
+  
+  .email-icon {
+    position: relative;
+    z-index: 1 !important;
+    background-color: rgba(76, 175, 80, 0);
+}
+
+.email-icon-position {
+    width: 60px;
+    position: relative;
+    top: 45px;
+    padding-left: 20px;
+}
+
+.error-message {
+  color: yellow;
+  font-size: 18px;
+  font-style: italic, bold;
+  width: 230px;
+  border-radius: 20px;
+  display: flex;
+  margin: auto;
+  margin-top: 50px;
+  padding-right: 10px; 
+}
+
+.feature-coming {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  font-style: italic;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
