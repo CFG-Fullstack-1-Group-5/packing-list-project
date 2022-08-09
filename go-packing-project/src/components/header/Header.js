@@ -13,9 +13,6 @@ function Header() {
           <Link to="/About">
             <button id="AboutButton" className="aboutButton">About</button>
           </Link>
-          <Link to="/Email">
-            <button id="AboutButton" className="aboutButton">Email</button>
-          </Link>
         </nav>
       </div>
     </header>
