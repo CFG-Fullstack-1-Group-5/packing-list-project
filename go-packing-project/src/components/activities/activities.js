@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import compass from "../../assets/icons/compass.svg";
-import "./Activities.css";
+import "./activities.css";
 import Select from 'react-select'
 
 

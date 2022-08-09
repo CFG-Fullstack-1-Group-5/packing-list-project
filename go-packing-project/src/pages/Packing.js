@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import ForecastWeather from "../components/forecast-weather/ForecastWeather"
 import Form from 'react-bootstrap/Form';
 
-
 function Packing() {
   // usestate for setting a javascript
   // object for storing and using data
@@ -61,32 +60,33 @@ function Packing() {
   const [error, setError] = useState(null);
 
   function isValidEmail(email) {
-      return /\S+@\S+\.\S+/.test(email);
+    return /\S+@\S+\.\S+/.test(email);
   }
 
   const handleChange = event => {
-    if (!isValidEmail(event.target.value)) {
-      setError('Please enter a valid email');
-    } else {
-      setError(null);
-    }
-    setMessage(event.target.value);
+  if (!isValidEmail(event.target.value)) {
+    setError('Please enter a valid email');
+  } else {
+    setError(null);
+  }
+  setMessage(event.target.value);
   };
 
   // using useState to display feature coming message upon button click
   const [isShown, setIsShown] = useState(false);
 
   const handleClick = event => {
-    setIsShown(current => !current);
-    event.currentTarget.disabled = true;
+  setIsShown(current => !current);
+  event.currentTarget.disabled = true;
   };
 
   function FeatureComing() {
     return <p className="feature-coming">Feature to come</p>
   }
 
+
   return (
-    <div className="Packing">
+    <>
       <Header />
       <div className="wrapper">
         <div className="box0">
@@ -99,23 +99,23 @@ function Packing() {
           ))}
         </div>
         <div className="box1">
-          <p className="yellow">Weather forecast:</p>
-          <ForecastWeather data={location} />
+          <ForecastWeather data={location}/>
         </div>
       </div>
       {/* Calling a data from setdata for showing */}
-      <h4>Your packing list</h4>
+      <div className="yourList">
+        <h4>Your packing list</h4>
+      </div>
       <div className="box2">
-        <p className="yellow">Clothes:</p>
+        <p className="yellow">&emsp;Clothes:</p>
         <div className="twocolumns">
         <CheckList list={data.clothes} />
         </div>
-        <p className="yellow">Extras:</p>
+        <p className="yellow">&emsp;Extras:</p>
         <div className="twocolumns">
         <CheckList list={data.extras} />
         </div>
       </div>
-
       <div className="email-section">
         <p className="email-subheader">Recieve a copy of your packing list</p>
       </div>
@@ -149,7 +149,7 @@ function Packing() {
       <div>
         {isShown && <FeatureComing/>}
       </div>
-    </div>
+    </>
   );
 }
 

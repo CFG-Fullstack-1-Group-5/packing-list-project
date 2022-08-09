@@ -8,14 +8,10 @@ const ForecastWeather = ({ data }) => {
           <p className="city">{data.address}</p>
           <p className="weather-description">{data.description}</p>
         </div>
-        <img
-          alt="weather"
-          className="weather-icon"
-          src={`icons/${data.icon}.png`}
-        />
+
       </div>
       <div className="parameter-row">
-      <span className="parameter-label">Average temperature for your stay:</span>
+        <span className="parameter-label">Average temperature for your stay:</span>
       </div>
       <div className="bottom">
         <p className="temperature">{data.temperature}°C</p>
@@ -36,6 +32,11 @@ const ForecastWeather = ({ data }) => {
             <span className="parameter-value">{data.humidity}%</span>
           </div> */}
         {/* </div> */}
+        <img
+          alt="weather"
+          className="weather-icon"
+          src={`icons/${data.icon}.png`}
+        />
       </div>
     </div>
   );

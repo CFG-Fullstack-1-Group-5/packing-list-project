@@ -1,11 +1,11 @@
 import "./Home.css";
-import Location from "../components/location/Location";
+import Location from "../components/location/location";
 import { WEATHER_API_URL, WEATHER_API_KEY, WEATHER_API_PARAMS } from "../api";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import DateRange from "../components/date-range/DateRange";
-import Activities from "../components/activities/Activities";
+import Activities from "../components/activities/activities";
 import StyleChoice from "../components/style-choice/StyleChoice";
 import moment from "moment";
 import Header from "../components/header/Header";
@@ -121,12 +121,12 @@ const App = () => {
         <div className="style-border">
           <StyleChoice storeStyle={storeStyle}  />
         </div>
-        <div className="submit-button-container">
-          <button id="submit-button">
-            Create my List
-          </button>
-        </div>
       </Form>
+      <div className="submit-button-container">
+        <button id="submit-button" form="form">
+          Create my List
+        </button>
+      </div>
     </>
   );
 }
