@@ -25,7 +25,7 @@ def find_sun(json_call):
 def count_days(json_call):
     first_day = int(json_call['weather']['days'][0]['datetime'][-2:])
     last_day = int(json_call['weather']['days'][-1]['datetime'][-2:])
-    return last_day - first_day + 1
+    return last_day - first_day
 
 
 def find_style(json_call):
