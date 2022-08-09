@@ -9,16 +9,17 @@ import Activities from "../components/activities/Activities";
 import StyleChoice from "../components/style-choice/StyleChoice";
 import moment from "moment";
 import Header from "../components/header/Header";
-import CurrentWeather from "../components/current-weather/CurrentWeather";
+import { useNavigate } from 'react-router-dom';
+
 
 const App = () => {
 
-  const [forecast, setForecast] = useState(null);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activities, setActivities] = useState(null);
   const [style, setStyle] = useState(null);
   const [locationCoordinates, setLocationCoordinates] = useState("coords here");
+  const navigate = useNavigate();
 
 
   // Set the startDate and endDate
@@ -51,6 +52,7 @@ const App = () => {
     e.preventDefault();
     console.log("Submit clicked");
     weatherApiCall();
+   setTimeout(() => {navigate('/Packing')}, 1000);
   };
 
   const weatherApiCall = () => {
@@ -67,7 +69,6 @@ const App = () => {
           const weather = { city, ...forecastResponse };
 
           getList(weather);
-          setForecast(weather);
         })
         .catch((err) => {
           console.log(err);
@@ -126,7 +127,6 @@ const App = () => {
           </button>
         </div>
       </Form>
-      {forecast && <CurrentWeather data={forecast} />}
     </>
   );
 }
