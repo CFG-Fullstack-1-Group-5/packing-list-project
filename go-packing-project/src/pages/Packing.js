@@ -6,6 +6,7 @@ import "./Packing.css";
 import email from "../assets/icons/email.svg"
 import { useNavigate } from "react-router-dom";
 import ForecastWeather from "../components/forecast-weather/ForecastWeather"
+import Form from 'react-bootstrap/Form';
 
 
 function Packing() {
@@ -55,11 +56,34 @@ function Packing() {
     );
   }, []);
 
-  const navigate = useNavigate();
+  // Email validation
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState(null);
 
-  const navigateToEmail = () => {
-    navigate('/email');
+  function isValidEmail(email) {
+      return /\S+@\S+\.\S+/.test(email);
+  }
+
+  const handleChange = event => {
+    if (!isValidEmail(event.target.value)) {
+      setError('Please enter a valid email');
+    } else {
+      setError(null);
+    }
+    setMessage(event.target.value);
   };
+
+  // using useState to display feature coming message upon button click
+  const [isShown, setIsShown] = useState(false);
+
+  const handleClick = event => {
+    setIsShown(current => !current);
+    event.currentTarget.disabled = true;
+  };
+
+  function FeatureComing() {
+    return <p className="feature-coming">Feature to come</p>
+  }
 
   return (
     <div className="Packing">
@@ -91,11 +115,39 @@ function Packing() {
         <CheckList list={data.extras} />
         </div>
       </div>
-      <div className="send-to-email">
-          <button id="send-to-email-button" onClick={navigateToEmail}>
-            <img src={email} alt="icon" className="mail-icon"/>
-            Send to email
-          </button>
+
+      <div className="email-section">
+        <p className="email-subheader">Recieve a copy of your packing list</p>
+      </div>
+      <div className="email-form">
+        <Form 
+        id="email-form">
+          <div className="email-icon">
+            <img className="email-icon-position" src={email} alt="icon" />
+          </div>
+          <Form.Control 
+          className="email-placeholder" 
+          type="email" 
+          placeholder="Enter email" 
+          value={message}
+          onChange={handleChange}
+          />
+          <div>
+            <button 
+            id="email-button" 
+            type="button" 
+            disabled={!message}
+            onClick={handleClick}>
+              Send
+            </button>
+          </div>
+        </Form>
+      </div>
+      <div className="error-message">
+        {error && <p>{error}</p>}
+        </div>
+      <div>
+        {isShown && <FeatureComing/>}
       </div>
     </div>
   );
