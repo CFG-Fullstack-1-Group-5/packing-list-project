@@ -30,12 +30,13 @@ def get_user_input():
     global temperature, variants, num_days, style_found, activity_found, dates, city, activities, weather_details
     temperature = average_temp(request.json)
     variants = ','.join([find_rain(request.json)] +
-                        [find_snow(request.json)] + [find_sun(request.json)])
+                    [find_snow(request.json)] + [find_sun(request.json)])
     num_days = count_days(request.json)
     style_found = find_style(request.json)
     activity_found = find_activity(request.json)
     dates = find_dates(request.json)  
     city = request.json['weather']['city']
+    activities = []
     for active in activity_found.split(','):
         if active == 'hiking':
             activities.append('Hiking')
@@ -45,30 +46,27 @@ def get_user_input():
             activities.append('Skiing')
         elif active == 'formalwear':
             activities.append('Formal')
-        elif active == 'active':
+        elif active == 'activewear':
             activities.append('Active')
     weather_details = {'temperature': temperature,
-                       'description': request.json['weather']['days'][0]['conditions'],
-                       'icon': request.json['weather']['days'][0]['icon'],
-                       'feelslike': request.json['weather']['days'][0]['feelslike'],
-                       'windspeed': request.json['weather']['days'][0]['windspeed'],
-                       'humidity': request.json['weather']['days'][0]['humidity']}
+                    'description': request.json['weather']['days'][0]['conditions'],
+                    'icon': request.json['weather']['days'][0]['icon'],
+                    'feelslike': request.json['weather']['days'][0]['feelslike'],
+                    'windspeed': request.json['weather']['days'][0]['windspeed'],
+                    'humidity': request.json['weather']['days'][0]['humidity']}
     return request.json
 
 @app.route('/clothes')
 @cross_origin()
 def get_clothes():
     global temperature, variants, num_days, style_found, activity_found
-    print(temperature)
     args = [num_days, temperature, style_found, activity_found, variants]
     try:
         database_connection = pymysql.connect(host=HOST, user=USER, password=PASSWORD, database="go_packing_1")
         cursor = database_connection.cursor()
         print(f"Connected to DB")
-        # print(args)
         cursor.callproc('sp_packing_list', args)
         results = cursor.fetchall()
-        print(results)
         clothes_list = {'clothes': [],
                        'extras': []}
         for item in results:
