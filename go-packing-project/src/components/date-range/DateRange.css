@@ -1,4 +1,8 @@
 
+.DateRange {
+  background-color: white;
+}
+
 .DateRangePickerInput_arrow {
     display: none !important;
 }
