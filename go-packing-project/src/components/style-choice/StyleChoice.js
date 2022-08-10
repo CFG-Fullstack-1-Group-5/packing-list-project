@@ -35,9 +35,9 @@ export default function Style(props) {
      <div className="style">
       <img className="icon" src={user} alt="icon" />
       <Select 
-      
       options={styles}
       value={styles.filter(obj => selectedValue.includes(obj.value))}
+      components={{ DropdownIndicator:() => null, IndicatorSeparator:() => null }}
       onChange={handleChange}
       placeholder="Style"
       styles={styling}

@@ -8,7 +8,7 @@ import "./location.css";
 const styling = {
   container: base => ({
     ...base,
-    flex: 1
+    flex: 1,
   })
 };
 
@@ -47,7 +47,7 @@ const Location = (props) => {
 
   return (
     <>
-      <div className="DateRange">
+      <div className="Location">
 
         <img
           className="icon search-icon"
@@ -61,7 +61,6 @@ const Location = (props) => {
           theme={(theme) => ({
             ...theme,
             borderRadius: "25px 0px 0px 25px",
-
           })}
           components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
           debounceTimeout={600}

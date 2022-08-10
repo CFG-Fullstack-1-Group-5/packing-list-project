@@ -8,10 +8,10 @@ body {
   /* font-family: 'Inter', sans-serif !important; */
   font-style: normal;
   font-weight: 400;
-  background: #000;
   line-height: 1.4;
   text-align: center;
   background: url('../src/assets/bg_main.jpeg');
+ 
   /* Set a specific height */
   min-height: 500px;
 
@@ -20,13 +20,11 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-size: 1500px;
-  color: #ffffff;
   text-align: center;
-
 
   /* Default font size is 16px */
 }
+
 
 h1,
 h2,

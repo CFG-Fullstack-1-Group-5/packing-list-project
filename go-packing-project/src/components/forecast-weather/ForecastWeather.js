@@ -8,11 +8,11 @@ const ForecastWeather = ({ data }) => {
           <p className="city">{data.address}</p>
           <p className="weather-description">{data.description}</p>
         </div>
+        <div className="parameter-row">
+          <span className="parameter-label">Average temperature for your stay:</span>
+        </div>
+      </div>
 
-      </div>
-      <div className="parameter-row">
-        <span className="parameter-label">Average temperature for your stay:</span>
-      </div>
       <div className="bottom">
         <p className="temperature">{data.temperature}°C</p>
         {/* <div className="details"> */}
