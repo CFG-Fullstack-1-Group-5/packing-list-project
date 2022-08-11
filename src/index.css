@@ -1,0 +1,79 @@
+html,
+body,
+#root {
+  min-height: 100vw !important;
+}
+
+body {
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: center;
+  background: url('../src/assets/bg_main.jpeg');
+  min-height: 500px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  /* Default font size is 16px */ 
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-style: normal;
+  font-weight: bold;
+  line-height: 1.4;
+  color: #363635;
+}
+
+.header2 {
+  font-size: 5.89rem;
+  font-weight: 500;
+}
+
+.header3 {
+  font-size: 3.89rem;
+  font-weight: 400;
+}
+
+.header4 {
+  font-size: 2.3rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.icon {
+  height: 50px;
+  background-color: rgba(76, 175, 80, 0);
+  padding: 12px 0 12px 12px;
+  position: absolute;
+  z-index: 1;
+
+}
+
+.calendar-icon {
+  margin-right: 39px;
+  background-color: white;
+}
+
+.search-icon {
+  margin-right: 0px;
+  background-color: none;
+  z-index: 1;
+}
+
+.search-col {
+  padding: 0 !important;
+}
+
+.css-319lph-ValueContainer {
+  height: 50px;
+}
+
+h1 {
+  font-weight: 800 !important;
+}

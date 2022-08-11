@@ -1,0 +1,84 @@
+h1 {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  font-size: 60px;
+  margin: 0 auto; 
+  text-shadow: 0px 4px 4px #00000025;
+}
+
+.Welcome {
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+
+#submit-button {
+  font-size: 18px;
+  width: 190px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: #FEB500;
+  border: none;
+  outline: none;
+  color: black;
+  box-shadow: 0px 4px 4px rgb(229, 145, 68, 50%);
+}
+
+#submit-button:hover {
+  background-color: #F5AF00;
+}
+
+#submit-button:focus {
+  background-color: #E0A100;
+}
+
+.submit-button-container {
+  margin-top: 60px !important;
+  text-align: center;
+  width: 100%;
+}
+
+#form {
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.location-border {
+  width: 25%;
+  border-right: 0.5px;
+  border-radius: 25px 15px 25px 25px;
+}
+
+.date-border {
+  width: 25%;
+  border-right: 0.5px solid black;
+  border-left: 0.5px solid black;
+  height: 50px !important;
+}
+
+.style {
+  border-radius: 0px 25px 25px 0px;
+  border-right: solid 26px white;
+  background-color: white;
+}
+
+.activities-border {
+  width: 25%;
+  border-right: 0.5px solid black;
+  border-left: 0.5px solid black;
+  z-index: 1;
+}
+
+.style-border {
+  width: 25%;
+  border-radius: 0px 25px 25px 0px;
+  border-right: solid 26px white;
+  background-color: white;
+}

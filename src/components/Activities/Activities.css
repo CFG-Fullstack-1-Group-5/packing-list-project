@@ -1,0 +1,41 @@
+.preview-values { 
+    border-radius: 0;
+}
+
+.activity {
+    margin: 0;
+    min-height: 50px !important;
+    height: 50px;
+    padding: 0;
+    border: none;
+    color: #000;
+    width: 300px;
+    padding: 12px;
+}
+
+.css-1s2u09g-control {
+    min-height: 50px !important;
+    height: 100%;
+    border: 0px !important;
+    border-radius: 0px !important;
+}
+
+.css-1s2u09g-control:hover {
+    min-height: 50px !important;
+    height: 50px;
+    border: 0px !important;
+    border-radius: 0px !important;
+}
+
+.css-g1d714-ValueContainer {
+    left: 40px !important;
+    border-radius: 0px;
+    border-radius: 0px !important;
+}
+
+.css-1pahdxg-control {
+    min-height: 50px !important;
+    border: 0px !important;
+    border-radius: 0px;
+    border-radius: 0px !important;
+}
