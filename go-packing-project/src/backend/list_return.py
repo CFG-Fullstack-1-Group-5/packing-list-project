@@ -32,16 +32,17 @@ def find_style(json_call):
     style_selected = []
     for style in json_call['style']:
         style_selected.append(style)
-    style_selected.append("unisex")
+    style_selected.append('unisex')
     return ','.join(style_selected)
 
 
 def find_activity(json_call):
     activity_selected = []
     for activity in json_call['activities']:
-        activity_selected.append(activity)
-    activity_selected.append("essential")
-    activity_selected.append("general")
+        if activity not in activity_selected:
+            activity_selected.append(activity)
+    activity_selected.append('essential')
+    activity_selected.append('general')
     return ','.join(activity_selected)
 
 
