@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from "react";  
 
-function CheckList( {list} ) {
+function CheckList({ list }) {
   // State with list of all checked item
   const [checked, setChecked] = useState([]);
 
@@ -25,7 +25,7 @@ function CheckList( {list} ) {
         <div className="list-container">
           {list?.map((item, index) => (
             <div key={index}>
-              <input value={item} type="checkbox" onChange={handleCheck}/>
+              <input value={item} type="checkbox" onChange={handleCheck} />
               <span className={isChecked(item)}>{item}</span>
             </div>
           ))}

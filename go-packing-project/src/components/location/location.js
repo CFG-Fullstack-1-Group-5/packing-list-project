@@ -2,30 +2,31 @@ import { useEffect, useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_API_URL, geoApiOptions } from "../../api";
 import searchIcon from "../../assets/icons/search.svg";
-import Select from "react-select";
-import "./location.css";
+import "./Location.css";
 
+//Styling for Choose City input on homepage
 const styling = {
   container: base => ({
-    ...base,
+    ...base, 
     flex: 1,
   })
 };
 
+//Store coordinates
 const Location = (props) => {
   const [coordinates, setCoordinates] = useState(null);
 
-  // Call storeCoordinates function from Home.js on every render
+  //Call storeCoordinates function from Home.js on every render
   useEffect(() => {
     props.storeCoordinates(coordinates);
-    // props.weatherApiCall(locationCoordinates);
   });
 
-  // Set coordinates state on date change
+  //Set coordinates state on date change
   const handleOnChange = (location) => {
     setCoordinates(location);
   };
 
+  //use GEOLOCATION API to fetch pre-filled city options
   const loadOptions = (inputValue) => {
     return fetch(
       `${GEO_API_URL}/cities?minPopulation=100000&namePrefix=${inputValue}`,
@@ -45,6 +46,7 @@ const Location = (props) => {
       .catch((err) => console.error(err));
   };
 
+  // AsyncPaginate elements
   return (
     <>
       <div className="Location">
@@ -56,7 +58,6 @@ const Location = (props) => {
         />
 
         <AsyncPaginate
-
           placeholder="City"
           theme={(theme) => ({
             ...theme,

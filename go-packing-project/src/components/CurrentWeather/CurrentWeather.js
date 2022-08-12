@@ -1,5 +1,6 @@
-import "./CurrentWeather.css";
+import "./CurrentWeather.css"; 
 
+//Display weather details returned from API data
 const CurrentWeather = ({ data }) => {
   return (
     <div className="weather">
@@ -14,6 +15,7 @@ const CurrentWeather = ({ data }) => {
           src={`icons/${data.days[0].icon}.png`}
         />
       </div>
+
       <div className="bottom">
         <p className="temperature">{data.days[0].temp}°C</p>
         <div className="details">

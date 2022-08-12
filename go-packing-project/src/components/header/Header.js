@@ -2,7 +2,7 @@ import "./Header.css";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header() { 
   return (
     <header>
       <div className="NavBar">

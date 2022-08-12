@@ -1,16 +1,15 @@
 import "./Home.css";
-import Location from "../components/location/location";
+import Location from "../components/Location/Location";
 import { WEATHER_API_URL, WEATHER_API_KEY, WEATHER_API_PARAMS } from "../api";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
-import DateRange from "../components/date-range/DateRange";
-import Activities from "../components/activities/activities";
-import StyleChoice from "../components/style-choice/StyleChoice";
+import DateRange from "../components/DateRange/DateRange";
+import Activities from "../components/Activities/Activities";
+import StyleChoice from "../components/StyleChoice/StyleChoice";
 import moment from "moment";
-import Header from "../components/header/Header";
-import { useNavigate } from 'react-router-dom';
-
+import Header from "../components/Header/Header";
+import { useNavigate } from 'react-router-dom'; 
 
 const App = () => {
 
@@ -48,11 +47,11 @@ const App = () => {
   };
 
   // stop page from reloading on button click
- const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Submit clicked");
     weatherApiCall();
-   setTimeout(() => {navigate('/Packing')}, 1000);
+    setTimeout(() => { navigate('/Packing') }, 1000);
   };
 
   const weatherApiCall = () => {
@@ -75,7 +74,7 @@ const App = () => {
         });
     }
   };
-    
+
   // send list to the backend
   const getList = (forecast) => {
     fetch('http://localhost:5000/user_input', {
@@ -83,14 +82,17 @@ const App = () => {
       headers: {
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
-},
+      },
       body: JSON.stringify(
-    {
+        {
           "weather": forecast,
           "activities": activities,
-          "style": style })})
-   .then(res => res.json())
-   .then(res => console.log(res))};
+          "style": style
+        })
+    })
+      .then(res => res.json())
+      .then(res => console.log(res))
+  };
 
   //home page form
   return (
@@ -100,7 +102,9 @@ const App = () => {
         <h1>Discover what to</h1>
         <h1>pack for your holiday</h1>
       </div>
+
       <Form id="form" onSubmit={handleSubmit}>
+
         {/* choose city */}
         <div className="location-border">
           <Location
@@ -109,7 +113,7 @@ const App = () => {
 
         {/* date range picker */}
         <div className="date-border">
-        <DateRange storeDates={storeDates} />
+          <DateRange storeDates={storeDates} />
         </div>
 
         {/* activities dropdown */}
@@ -119,9 +123,11 @@ const App = () => {
 
         {/* style dropdown */}
         <div className="style-border">
-          <StyleChoice storeStyle={storeStyle}  />
+          <StyleChoice storeStyle={storeStyle} />
         </div>
       </Form>
+
+      {/* submit button */}
       <div className="submit-button-container">
         <button id="submit-button" form="form">
           Create my List
