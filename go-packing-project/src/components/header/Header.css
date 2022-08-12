@@ -1,11 +1,7 @@
 nav {
     height: 70px;
-    width: 100%;
+    width: 100%; 
     margin: 0 auto;
-    /* position: fixed;
-    top: 0;
-    left:0;
-    right: 0; */
     background: rgba(255, 255, 255, 0.25);
     overflow: hidden;
     padding: 0;
@@ -37,13 +33,10 @@ nav {
     float: left;
 }
 
-#AboutButton:hover{
+#AboutButton:hover {
     background-color: #8CC4CF;
-
 }
 
-
-#AboutButton:focus{
+#AboutButton:focus {
     background-color: #52A6B7;
-
 }

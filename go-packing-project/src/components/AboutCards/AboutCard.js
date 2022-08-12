@@ -1,4 +1,4 @@
-import "./AboutCard.css";
+import "./AboutCards.css"; 
 
 export default function AboutCard(props) {
     return (
