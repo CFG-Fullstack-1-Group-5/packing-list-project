@@ -1,0 +1,43 @@
+{
+    "weather": {
+        "city": "Kraków, PL",
+        "queryCost": 1,
+        "latitude": 50.061388888,
+        "longitude": 19.937222222,
+        "resolvedAddress": "50.061388888,19.937222222",
+        "address": "50.061388888,19.937222222",
+        "timezone": "Europe/Warsaw",
+        "tzoffset": 2,
+        "days": [
+            {
+                "datetime": "2022-08-21",
+                "temp": 20.3,
+                "conditions": "Rain",
+                "description": "Clear conditions throughout the day with a chance of rain.",
+                "icon": "rain"
+            },
+            {
+                "datetime": "2022-08-22",
+                "temp": 21.4,
+                "conditions": "Rain, Partially cloudy",
+                "description": "Becoming cloudy in the afternoon with a chance of rain.",
+                "icon": "rain"
+            },
+            {
+                "datetime": "2022-08-23",
+                "temp": 22,
+                "conditions": "Overcast",
+                "description": "Cloudy skies throughout the day.",
+                "icon": "cloudy"
+            }
+        ]
+    },
+    "activities": [
+        "hiking",
+        "activewear",
+        "formalwear"
+    ],
+    "style": [
+        "unisex"
+    ]
+}
