@@ -8,6 +8,7 @@ import pymysql
 app = Flask(__name__)
 CORS(app)
 
+# set global variables to pass them between routes
 temperature = ''
 variants = []
 num_days = ''
@@ -18,15 +19,13 @@ city = ''
 activities = []
 weather_details = {'temperature': '',
                     'description': '',
-                    'icon': '',
-                    'feelslike': '',
-                    'windspeed': '',
-                    'humidity': ''}
+                    'icon': ''}
 
 
 @app.route('/user_input', methods=['POST'])
 @cross_origin()
 def get_user_input():
+    # set global variables based on incoming user input and weather API details
     global temperature, variants, num_days, style_found, activity_found, dates, city, activities, weather_details
     temperature = average_temp(request.json)
     variants = ','.join([find_rain(request.json)] +
@@ -50,15 +49,13 @@ def get_user_input():
             activities.append('Active')
     weather_details = {'temperature': temperature,
                     'description': request.json['weather']['days'][0]['conditions'],
-                    'icon': request.json['weather']['days'][0]['icon'],
-                    'feelslike': request.json['weather']['days'][0]['feelslike'],
-                    'windspeed': request.json['weather']['days'][0]['windspeed'],
-                    'humidity': request.json['weather']['days'][0]['humidity']}
-    return request.json
+                    'icon': request.json['weather']['days'][0]['icon']}
+    return jsonify(request.json)
 
 @app.route('/clothes')
 @cross_origin()
 def get_clothes():
+    # retrieve clothes data from database based on user input
     global temperature, variants, num_days, style_found, activity_found
     args = [num_days, temperature, style_found, activity_found, variants]
     try:
@@ -68,7 +65,7 @@ def get_clothes():
         cursor.callproc('sp_packing_list', args)
         results = cursor.fetchall()
         clothes_list = {'clothes': [],
-                       'extras': []}
+                    'extras': []}
         for item in results:
             if item[1] == 'extras':
                 clothes_list['extras'].append(item[0])
@@ -89,6 +86,7 @@ def get_clothes():
 @app.route('/data')
 @cross_origin()
 def get_display_information():
+    # display data for front_end
     global dates, city, activities, weather_details
     data = {'city': city,
             'dates': dates,
@@ -96,6 +94,7 @@ def get_display_information():
             'weather': weather_details
             }
     return jsonify(data)
+
 
 # Running app
 if __name__ == '__main__':
