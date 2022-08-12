@@ -51,7 +51,7 @@ Once everything has been set, run in parallel terminals:
 The app will be available at http://localhost:3000.
 
 ### Example of app usage:
-![App working](https://s4.gifyu.com/images/website-working2.gif)
+![App working](https://s4.gifyu.com/images/ezgif.com-gif-makere4b5bc9a9981d5e5.gif)
 
 ## :clipboard: TESTING
 We have written some tests for our project. They can be located in the Unit_tests folder. To run:
