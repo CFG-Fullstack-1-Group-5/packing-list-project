@@ -54,10 +54,10 @@ The app will be available at http://localhost:3000.
 ![App working](https://s4.gifyu.com/images/website-working2.gif)
 
 ## :clipboard: TESTING
-We have written some tests for our project. They can be located in the Unit test folder. To run:
+We have written some tests for our project. They can be located in the Unit_tests folder. To run:
 - [ ] for frontend testing, type in terminal: npm run test
 - [ ] for backend testing (this requires installation of pytest module: `pip install -U pytest`), type in terminal: pytest
-- [ ] for SQL testing: copy content of .sql file and run in MySQL Workbench
+- [ ] for SQL testing: copy content of DB_testing.sql file and run in MySQL Workbench
 
 ## :busts_in_silhouette: TEAM
 We are a group of [![CFG](https://custom-icon-badges.herokuapp.com/badge/CodeFirstGirls-white?logo=code-first-girls)](https://codefirstgirls.com/) students on a Full Stack learning path. Prior to starting CFGdegree, we had minimal (to none) knowledge of programming. This is our final project for the course. Team members:
