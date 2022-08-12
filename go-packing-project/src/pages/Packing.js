@@ -116,7 +116,7 @@ function Packing() {
       </div>
 
       <div className="email-section">
-        <p className="email-subheader">Recieve a copy of your packing list</p>
+        <p className="email-subheader">Receive a copy of your packing list</p>
       </div>
 
       {/* Email form */}
