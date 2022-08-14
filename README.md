@@ -54,7 +54,7 @@ The app will be available at http://localhost:3000.
 ![App working](https://s4.gifyu.com/images/ezgif.com-gif-makere4b5bc9a9981d5e5.gif)
 
 ## :clipboard: TESTING
-We have written some tests for our project. They can be located in the Unit_tests folder. To run:
+We have written some tests for our project. To run:
 - [ ] for frontend testing, type in terminal: npm run test
 - [ ] for backend testing (this requires installation of pytest module: `pip install -U pytest`), type in terminal: pytest
 - [ ] for SQL testing: copy content of DB_testing.sql file and run in MySQL Workbench
