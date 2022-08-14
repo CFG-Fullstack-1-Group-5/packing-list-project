@@ -57,7 +57,7 @@ The app will be available at http://localhost:3000.
 We have written some tests for our project. To run:
 - [ ] for frontend testing, type in terminal: npm run test
 - [ ] for backend testing (this requires installation of pytest module: `pip install -U pytest`), type in terminal: pytest
-- [ ] for SQL testing: copy content of DB_testing.sql file and run in MySQL Workbench
+- [ ] for SQL testing: copy content of DB_testing.sql located in Unit_tests folder and run in MySQL Workbench
 
 ## :busts_in_silhouette: TEAM
 We are a group of [![CFG](https://custom-icon-badges.herokuapp.com/badge/CodeFirstGirls-white?logo=code-first-girls)](https://codefirstgirls.com/) students on a Full Stack learning path. Prior to starting CFGdegree, we had minimal (to none) knowledge of programming. This is our final project for the course. Team members:
