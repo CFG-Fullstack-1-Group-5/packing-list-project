@@ -38,6 +38,7 @@ Our project is an answer to this challenge. It takes into consideration forecast
 - [ ] pip install flask
 - [ ] pip install -U flask-cors
 - [ ] pip install PyMySQL
+- [ ] sign up for API keys for https://www.visualcrossing.com/ and https://rapidapi.com/wirefreethought/api/geodb-cities and add them in api.js file.
 
 ### :small_blue_diamond: Setting up frontend:
 - [ ] npm install
